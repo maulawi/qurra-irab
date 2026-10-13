@@ -1,0 +1,71 @@
+/* ==========================================================================
+   QURRA I'rab — Responsive breakpoints
+
+   Mobile-first: base rules elsewhere in the CSS target small phones
+   (~390px and up) directly. This file adds the tablet (768px) and
+   desktop (1440px) overrides, matching the breakpoints already proven
+   in the QURRA Mufradat al-Qur'an prototype — plus the one structural
+   switch the redesign introduces: bottom tab bar (phones) vs. inline
+   header links (tablet and up).
+   ========================================================================== */
+
+/* -- small phone baseline (<=389px): tighten spacing a little further -- */
+@media (max-width: 389px) {
+  .qi-header {
+    padding: 0 var(--qi-space-3);
+    gap: var(--qi-space-2);
+  }
+  #qi-app-content {
+    padding-left: var(--qi-space-3);
+    padding-right: var(--qi-space-3);
+  }
+  .qi-word-row {
+    flex-direction: column;
+  }
+  .qi-word-row-ar {
+    min-width: 0;
+  }
+  .qi-stats-row {
+    flex-wrap: wrap;
+  }
+  .qi-stat-card {
+    flex: 1 1 50%;
+  }
+}
+
+/* -- phones only (<768px): bottom tab bar is the nav; header has no
+   inline links and the content area reserves space at the bottom -- */
+@media (max-width: 767px) {
+  .qi-tabbar {
+    display: flex;
+  }
+}
+
+/* -- tablet and up (>=768px): inline header nav replaces the tab bar -- */
+@media (min-width: 768px) {
+  .qi-tabbar {
+    display: none;
+  }
+  .qi-nav-links-desktop {
+    display: flex;
+  }
+  #qi-app-content {
+    padding-bottom: var(--qi-space-8);
+  }
+  .qi-chapter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .qi-dual-analysis-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* -- desktop and up (>=1440px) -- */
+@media (min-width: 1440px) {
+  .qi-chapter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #qi-app-content {
+    padding-top: var(--qi-space-8);
+  }
+}

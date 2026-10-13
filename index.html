@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QURRA I&rsquo;rab</title>
+  <meta name="description" content="Learn Arabic i'rab (grammatical case analysis) chapter by chapter, grounded in a classical reference text." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231b4d3e'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f6f1e4' font-family='serif'%3Eع%3C/text%3E%3C/svg%3E" />
+
+  <!-- Display serif (headings), interface sans (body/UI), and a real
+       classical Arabic text face (Amiri) — see css/tokens.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- CSS: tokens first (custom properties), then base/layout/components,
+       then more specific sheets. Order matters only for cascade clarity,
+       not correctness, since specificity is kept flat throughout. -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/lesson.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- Persistent nav bar, re-rendered by router.js on every route change
+       so the active link can be highlighted. -->
+  <div id="qi-app-nav"></div>
+
+  <!-- Main content mount point; router.js swaps its contents per route. -->
+  <main id="qi-app-content" aria-live="polite"></main>
+
+  <!-- ====================================================================
+       Script load order is significant: no bundler, no type="module" —
+       plain global IIFEs in dependency order (see ARCHITECTURE.md).
+
+       1. Translation dictionaries + i18n engine (UI chrome strings)
+       2. Raw data (curriculum metadata, then lesson content)
+       3. Data repository layer (joins the two raw data files)
+       4. App state (language) + progress persistence
+       5. Reusable engines (exercises, then lessons — lessons use exercises)
+       6. Screen building blocks (nav, then full-page renderers)
+       7. Router, then bootstrap (must load last)
+       ==================================================================== -->
+  <script src="js/translations/en.js"></script>
+  <script src="js/translations/ms.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <script src="js/curriculum.js"></script>
+  <script src="js/lessonData.js"></script>
+  <script src="js/data.js"></script>
+
+  <script src="js/state.js"></script>
+  <script src="js/progress.js"></script>
+
+  <script src="js/exerciseEngine.js"></script>
+  <script src="js/lessonEngine.js"></script>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/render.js"></script>
+
+  <script src="js/router.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

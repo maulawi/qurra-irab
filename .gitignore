@@ -1,0 +1,33 @@
+# Dependencies (the app has none; Playwright may be installed locally for tests)
+node_modules/
+package-lock.json.bak
+
+# Secrets / local environment (a safe .env.example is allowed)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / tool local settings
+.vscode/
+.idea/
+*.code-workspace
+.claude/settings.local.json
+
+# Logs, caches, test output, browser artifacts
+*.log
+npm-debug.log*
+.cache/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+screenshots/
+*.tmp
+*.swp

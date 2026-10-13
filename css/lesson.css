@@ -1,0 +1,148 @@
+/* ==========================================================================
+   QURRA I'rab — Lesson & word-walkthrough specific styles
+   ========================================================================== */
+
+.qi-lesson-header {
+  padding-bottom: var(--qi-space-4);
+  margin-bottom: var(--qi-space-2);
+}
+.qi-lesson-chapter-label {
+  color: var(--qi-color-text-muted);
+  font-size: var(--qi-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--qi-space-1);
+}
+.qi-lesson-title-ar {
+  font-size: var(--qi-font-size-arabic-lg);
+  margin: var(--qi-space-1) 0;
+}
+.qi-lesson-topic {
+  color: var(--qi-color-text-muted);
+  font-size: var(--qi-font-size-sm);
+  max-width: 48em;
+}
+
+.qi-lesson-progress-chip {
+  display: inline-block;
+  font-size: var(--qi-font-size-xs);
+  font-weight: 600;
+  color: var(--qi-color-secondary);
+  background: var(--qi-color-gold-tint);
+  border-radius: 999px;
+  padding: var(--qi-space-1) var(--qi-space-3);
+  margin-bottom: var(--qi-space-5);
+}
+
+/* Each major step gets a quiet left accent rule instead of a full-width
+   divider line — reads as "chapter structure" rather than a stack of
+   horizontal rules, and keeps the step's eyebrow + heading anchored to
+   one edge. */
+.qi-lesson-step {
+  border-left: 3px solid var(--qi-color-border);
+  padding-left: var(--qi-space-4);
+}
+.qi-step-concept,
+.qi-step-rule,
+.qi-step-example {
+  border-left-color: var(--qi-color-primary);
+}
+.qi-step-exercise {
+  border-left-color: var(--qi-color-gold);
+}
+.qi-step-completion {
+  border-left-color: var(--qi-color-secondary);
+}
+
+.qi-step-eyebrow {
+  margin-bottom: var(--qi-space-2);
+}
+
+.qi-example-sentence {
+  text-align: center;
+  background: var(--qi-color-surface);
+  box-shadow: var(--qi-shadow-card);
+  border-radius: var(--qi-radius-md);
+  padding: var(--qi-space-5) var(--qi-space-4);
+  font-size: var(--qi-font-size-arabic-md);
+}
+.qi-example-gloss {
+  text-align: center;
+  font-style: italic;
+  color: var(--qi-color-text-muted);
+}
+
+.qi-walkthrough-heading {
+  margin-top: var(--qi-space-5);
+}
+.qi-walkthrough-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qi-space-3);
+}
+.qi-word-row {
+  display: flex;
+  gap: var(--qi-space-4);
+  align-items: flex-start;
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-md);
+  box-shadow: var(--qi-shadow-card);
+  padding: var(--qi-space-3) var(--qi-space-4);
+}
+.qi-word-row-ar {
+  flex: 0 0 auto;
+  min-width: 110px;
+  text-align: center;
+  font-size: var(--qi-font-size-arabic-md);
+}
+.qi-word-row-details p {
+  margin: 0 0 var(--qi-space-1) 0;
+  font-size: var(--qi-font-size-sm);
+}
+.qi-word-role { font-weight: 700; font-family: var(--qi-font-display); }
+.qi-word-case { color: var(--qi-color-secondary); }
+.qi-word-reason { color: var(--qi-color-text-muted); }
+
+/* -- dual-analysis: two labeled panels + a shared ranking footer -- */
+.qi-dual-analysis {
+  margin-top: var(--qi-space-5);
+  background: var(--qi-color-gold-tint);
+  border-radius: var(--qi-radius-md);
+  padding: var(--qi-space-4);
+}
+.qi-dual-analysis-panels {
+  display: grid;
+  grid-template-columns: 1fr; /* stacked on phones; two columns from tablet up, see responsive.css */
+  gap: var(--qi-space-4);
+  margin: var(--qi-space-3) 0;
+}
+.qi-dual-analysis-panel {
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-sm);
+  padding: var(--qi-space-3);
+}
+.qi-dual-analysis-hint {
+  color: var(--qi-color-text-muted);
+  font-size: var(--qi-font-size-sm);
+  font-style: italic;
+  margin: 0;
+}
+.qi-dual-analysis-ranking {
+  font-style: italic;
+  margin: 0;
+  color: var(--qi-color-secondary);
+}
+
+.qi-placeholder-title {
+  color: var(--qi-color-text-muted);
+}
+.qi-placeholder-body {
+  color: var(--qi-color-text-muted);
+}
+
+.qi-back-link {
+  display: inline-block;
+  margin-bottom: var(--qi-space-4);
+  font-size: var(--qi-font-size-sm);
+  font-weight: 600;
+}

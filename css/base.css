@@ -1,0 +1,115 @@
+/* ==========================================================================
+   QURRA I'rab — Base styles: reset, typography, RTL/LTR rules
+
+   The document as a whole is ALWAYS LTR (html[dir="ltr"], set in
+   index.html) regardless of interface language (EN chrome and MS
+   chrome are both LTR scripts). Only elements explicitly marked with
+   class "qi-arabic" (and dir="rtl" set alongside it in the JS that
+   creates them) flip to RTL. This is deliberate per the approved
+   architecture: Arabic is scoped to content blocks, never the whole
+   page.
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--qi-font-ui);
+  font-size: var(--qi-font-size-base);
+  line-height: var(--qi-line-height-base);
+  color: var(--qi-color-text);
+  background: var(--qi-color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings use the serif display face — the single biggest lever for a
+   "scholarly" rather than "generic app" feel. text-wrap: balance keeps
+   multi-line headings from breaking awkwardly. */
+h1, h2, h3 {
+  font-family: var(--qi-font-display);
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0 0 var(--qi-space-3) 0;
+  text-wrap: balance;
+  color: var(--qi-color-text);
+}
+
+h1 { font-size: var(--qi-font-size-2xl); }
+h2 { font-size: var(--qi-font-size-xl); }
+h3 { font-size: var(--qi-font-size-lg); font-weight: 600; }
+
+p { margin: 0 0 var(--qi-space-3) 0; max-width: 42em; }
+
+a {
+  color: var(--qi-color-primary);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Recolor every native form control from browser-default blue to the
+   brand green — a one-line fix for the "bright blue default controls"
+   problem on radios/checkboxes used throughout the exercise engine. */
+input, textarea, select {
+  accent-color: var(--qi-color-primary);
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--qi-color-primary);
+  outline-offset: 2px;
+}
+
+/* Arabic content blocks: always RTL, isolated from surrounding LTR
+   bidi context, and set in the dedicated Arabic type stack. The JS
+   that creates these elements also sets dir="rtl" and lang="ar"
+   directly on the element (belt-and-suspenders with unicode-bidi). */
+.qi-arabic {
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-family: var(--qi-font-arabic);
+  font-size: var(--qi-font-size-arabic);
+  line-height: var(--qi-line-height-arabic);
+}
+
+.qi-hidden {
+  display: none !important;
+}
+
+.qi-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* Small uppercase eyebrow label, reused for lesson-step and exercise
+   section labels throughout. */
+.qi-eyebrow {
+  font-size: var(--qi-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--qi-color-secondary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .qi-word-row {
+    animation: qi-fade-in 0.2s ease-out;
+  }
+}
+@keyframes qi-fade-in {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}

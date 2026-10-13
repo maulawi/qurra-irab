@@ -1,0 +1,441 @@
+/* ==========================================================================
+   QURRA I'rab — Reusable components: nav, buttons, badges, cards, forms
+   ========================================================================== */
+
+/* -- brand / header -- */
+.qi-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-2);
+  font-family: var(--qi-font-display);
+  font-weight: 600;
+  font-size: var(--qi-font-size-lg);
+  color: var(--qi-color-text);
+  white-space: nowrap;
+}
+.qi-nav-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--qi-color-primary);
+  color: var(--qi-color-primary-contrast);
+  font-family: var(--qi-font-arabic);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.qi-nav-brand:hover { text-decoration: none; }
+
+/* -- desktop inline nav links -- */
+.qi-nav-link {
+  color: var(--qi-color-text-muted);
+  font-weight: 600;
+  font-size: var(--qi-font-size-sm);
+}
+.qi-nav-link:hover { text-decoration: none; color: var(--qi-color-primary); }
+.qi-nav-link--active {
+  color: var(--qi-color-primary);
+}
+
+/* -- language switch -- */
+.qi-lang-btn {
+  border: 1px solid var(--qi-color-border);
+  background: var(--qi-color-surface);
+  color: var(--qi-color-text-muted);
+  border-radius: var(--qi-radius-sm);
+  padding: 3px var(--qi-space-2);
+  font-size: var(--qi-font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+}
+.qi-lang-btn--active {
+  background: var(--qi-color-primary);
+  color: var(--qi-color-primary-contrast);
+  border-color: var(--qi-color-primary);
+}
+
+/* -- bottom tab bar (phones) -- */
+.qi-tabbar-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--qi-color-text-muted);
+  min-height: 44px; /* comfortable tap target */
+}
+.qi-tabbar-link:hover { text-decoration: none; }
+.qi-tabbar-link--active {
+  color: var(--qi-color-primary);
+}
+.qi-tabbar-icon {
+  display: inline-flex;
+}
+.qi-tabbar-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+/* -- buttons -- */
+.qi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qi-space-2);
+  padding: var(--qi-space-2) var(--qi-space-5);
+  min-height: 44px;
+  border-radius: var(--qi-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--qi-font-size-sm);
+}
+
+.qi-btn--primary {
+  background: var(--qi-color-primary);
+  color: var(--qi-color-primary-contrast);
+}
+.qi-btn--primary:hover {
+  background: var(--qi-color-primary-hover);
+  text-decoration: none;
+}
+
+.qi-btn--secondary {
+  background: var(--qi-color-surface);
+  color: var(--qi-color-primary);
+  border-color: var(--qi-color-primary);
+}
+.qi-btn--secondary:hover {
+  background: var(--qi-color-primary-tint);
+  text-decoration: none;
+}
+
+.qi-btn--danger {
+  background: transparent;
+  color: var(--qi-color-error-text);
+  border-color: transparent;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.qi-btn--danger:hover {
+  background: var(--qi-color-error-bg);
+  text-decoration: underline;
+}
+
+/* -- cards: used selectively (stats, exercises, elevated panels), not
+   on every block — see ARCHITECTURE.md's design-system notes -- */
+.qi-card {
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-lg);
+  box-shadow: var(--qi-shadow-card);
+  padding: var(--qi-space-5);
+  margin-bottom: var(--qi-space-5);
+}
+
+/* -- stat strip: one card, internal dividers instead of separate boxes -- */
+.qi-stat-card {
+  flex: 1;
+  min-width: 0;
+  padding: var(--qi-space-4) var(--qi-space-3);
+  text-align: center;
+  border-right: 1px solid var(--qi-color-border);
+}
+.qi-stat-card:last-child { border-right: none; }
+.qi-stat-number {
+  font-family: var(--qi-font-display);
+  font-size: var(--qi-font-size-2xl);
+  font-weight: 700;
+  color: var(--qi-color-primary);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.qi-stat-label {
+  font-size: var(--qi-font-size-xs);
+  color: var(--qi-color-text-muted);
+  margin: 0;
+}
+
+/* -- curriculum / dashboard progress bar -- */
+.qi-progress-bar-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--qi-color-surface-alt);
+  overflow: hidden;
+}
+.qi-progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--qi-color-primary);
+}
+.qi-progress-bar-fill--gold {
+  background: var(--qi-color-gold);
+}
+.qi-progress-bar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--qi-space-1);
+  font-size: var(--qi-font-size-sm);
+}
+.qi-progress-bar-row + .qi-progress-bar-track {
+  margin-bottom: var(--qi-space-4);
+}
+
+/* -- recommended-next callout -- */
+.qi-recommend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--qi-space-3);
+  flex-wrap: wrap;
+  background: var(--qi-color-gold-tint);
+  border-radius: var(--qi-radius-md);
+  padding: var(--qi-space-3) var(--qi-space-4);
+  margin-bottom: var(--qi-space-5);
+}
+.qi-recommend-text {
+  margin: 0;
+  font-size: var(--qi-font-size-sm);
+}
+
+/* -- continue / progress lesson rows: one grouping, hairline dividers
+   between rows instead of each row being its own boxed card -- */
+.qi-continue-item {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-3);
+  padding: var(--qi-space-3) var(--qi-space-1);
+  border-bottom: 1px solid var(--qi-color-border);
+  color: var(--qi-color-text);
+}
+.qi-continue-item:last-child { border-bottom: none; }
+.qi-continue-item:hover { text-decoration: none; background: var(--qi-color-primary-tint); }
+.qi-continue-item .qi-arabic {
+  font-size: var(--qi-font-size-arabic);
+  flex-shrink: 0;
+}
+.qi-continue-item-title {
+  flex: 1;
+  font-size: var(--qi-font-size-sm);
+  color: var(--qi-color-text-muted);
+}
+
+/* -- chapter cards (curriculum browser) -- */
+.qi-chapter-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qi-space-1);
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-md);
+  box-shadow: var(--qi-shadow-card);
+  padding: var(--qi-space-4);
+  border-left: 3px solid var(--qi-color-primary);
+}
+
+.qi-chapter-card--locked {
+  border-left-color: var(--qi-color-border);
+  box-shadow: none;
+  background: var(--qi-color-surface-alt);
+}
+.qi-chapter-card--locked .qi-chapter-card-title,
+.qi-chapter-card--locked .qi-arabic {
+  color: var(--qi-color-text-muted);
+}
+
+.qi-chapter-card--placeholder {
+  border-left-color: var(--qi-color-placeholder);
+}
+
+.qi-chapter-card-id {
+  margin: 0;
+  font-size: var(--qi-font-size-xs);
+  color: var(--qi-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.qi-chapter-card-ar {
+  margin: var(--qi-space-1) 0;
+  font-size: var(--qi-font-size-arabic-md);
+}
+.qi-chapter-card-title {
+  margin: 0;
+  font-weight: 600;
+}
+.qi-chapter-card-pages {
+  margin: 0 0 var(--qi-space-2) 0;
+  font-size: var(--qi-font-size-xs);
+  color: var(--qi-color-text-muted);
+}
+
+.qi-chapter-card-locked-notice {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-1);
+  margin: 0;
+  font-size: var(--qi-font-size-sm);
+  color: var(--qi-color-text-muted);
+}
+
+/* -- badges (content labels + lesson status) -- */
+.qi-badge {
+  display: inline-block;
+  font-size: var(--qi-font-size-xs);
+  font-weight: 600;
+  padding: 2px var(--qi-space-3);
+  border-radius: 999px;
+  color: #fff;
+  width: fit-content;
+}
+.qi-badge--source-derived { background: var(--qi-color-source-derived); }
+.qi-badge--source-example { background: var(--qi-color-source-example); }
+.qi-badge--new-example { background: var(--qi-color-new-example); }
+.qi-badge--needs-review { background: var(--qi-color-needs-review); }
+.qi-badge--placeholder { background: var(--qi-color-placeholder); }
+.qi-badge--complete { background: var(--qi-color-gold); color: #3a2c0e; }
+
+/* -- citation -- */
+.qi-citation {
+  font-size: var(--qi-font-size-xs);
+  color: var(--qi-color-text-muted);
+  font-style: italic;
+}
+
+/* -- exercise form controls -- */
+.qi-exercise {
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-lg);
+  box-shadow: var(--qi-shadow-raised);
+  padding: var(--qi-space-5);
+}
+
+.qi-exercise-step-label {
+  font-size: var(--qi-font-size-xs);
+  font-weight: 700;
+  color: var(--qi-color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--qi-space-2);
+}
+
+/* Option rows: styled as tappable segments (not bare radio buttons).
+   Visual states: resting / hover / selected / correct / incorrect,
+   applied via classes toggled in exerciseEngine.js. */
+.qi-exercise-option {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-3);
+  padding: var(--qi-space-3);
+  border: 1.5px solid var(--qi-color-border);
+  border-radius: var(--qi-radius-md);
+  margin-bottom: var(--qi-space-2);
+  cursor: pointer;
+  background: var(--qi-color-surface);
+}
+.qi-exercise-option:hover {
+  border-color: var(--qi-color-primary);
+}
+.qi-exercise-option input[type="radio"] {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.qi-exercise-option--selected {
+  border-color: var(--qi-color-primary);
+  background: var(--qi-color-primary-tint);
+}
+.qi-exercise-option--correct {
+  border-color: var(--qi-color-success-text);
+  background: var(--qi-color-success-bg);
+}
+.qi-exercise-option--incorrect {
+  border-color: var(--qi-color-error-text);
+  background: var(--qi-color-error-bg);
+}
+.qi-exercise-option-mark {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: var(--qi-font-size-sm);
+}
+.qi-exercise-option-mark--correct { color: var(--qi-color-success-text); }
+.qi-exercise-option-mark--incorrect { color: var(--qi-color-error-text); }
+
+.qi-exercise-field {
+  margin-bottom: var(--qi-space-4);
+}
+.qi-exercise-field-label {
+  font-weight: 600;
+  margin-bottom: var(--qi-space-2);
+  font-size: var(--qi-font-size-sm);
+}
+.qi-exercise-field-options {
+  display: flex;
+  gap: var(--qi-space-3);
+  flex-wrap: wrap;
+}
+.qi-exercise-field-options .qi-exercise-option {
+  flex: 1 1 auto;
+  min-width: 140px;
+  margin-bottom: 0;
+}
+
+.qi-exercise-feedback {
+  margin-top: var(--qi-space-3);
+  padding: var(--qi-space-3) var(--qi-space-4);
+  border-radius: var(--qi-radius-md);
+}
+.qi-exercise-feedback--correct {
+  background: var(--qi-color-success-bg);
+  color: var(--qi-color-success-text);
+}
+.qi-exercise-feedback--incorrect {
+  background: var(--qi-color-error-bg);
+  color: var(--qi-color-error-text);
+}
+.qi-exercise-feedback--prompt {
+  background: transparent;
+  color: var(--qi-color-text-muted);
+  font-style: italic;
+  padding-left: 0;
+}
+.qi-exercise-verdict {
+  font-family: var(--qi-font-display);
+  font-weight: 700;
+  margin: 0 0 var(--qi-space-2) 0;
+}
+.qi-exercise-rulenote-label {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: var(--qi-font-size-sm);
+}
+
+/* -- page-level text helpers -- */
+.qi-dashboard-subtitle {
+  color: var(--qi-color-text-muted);
+  max-width: 38em;
+}
+.qi-curriculum-intro {
+  color: var(--qi-color-text-muted);
+  margin-bottom: var(--qi-space-5);
+}
+.qi-tier-rationale {
+  color: var(--qi-color-text-muted);
+  font-size: var(--qi-font-size-sm);
+  font-style: italic;
+  margin-bottom: var(--qi-space-4);
+}
+.qi-about-source {
+  border-top: 1px solid var(--qi-color-border);
+  padding-top: var(--qi-space-5);
+  margin-top: var(--qi-space-2);
+}
+.qi-about-source p {
+  color: var(--qi-color-text-muted);
+}
+.qi-progress-note {
+  color: var(--qi-color-text-muted);
+  font-size: var(--qi-font-size-sm);
+}

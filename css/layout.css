@@ -1,0 +1,111 @@
+/* ==========================================================================
+   QURRA I'rab — Layout: header, tab bar, page containers, grids
+
+   Structural/positioning rules only. Visual styling of individual
+   components (buttons, cards, badges) lives in components.css.
+
+   Nav pattern: a compact header (brand + language switch, always
+   visible) plus EITHER an inline link row in that header (tablet/
+   desktop, >=768px) OR a fixed bottom tab bar (phones, <768px) — never
+   both at once. See responsive.css for the breakpoint switch and
+   js/navigation.js for why the link markup is duplicated rather than
+   reflowed with JS.
+   ========================================================================== */
+
+#qi-app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.qi-header {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-4);
+  height: var(--qi-header-height);
+  padding: 0 var(--qi-space-4);
+  background: var(--qi-color-surface);
+  border-bottom: 1px solid var(--qi-color-border);
+}
+
+.qi-nav-links-desktop {
+  display: none; /* shown at >=768px, see responsive.css */
+  gap: var(--qi-space-5);
+  flex: 1;
+}
+
+.qi-lang-switch {
+  display: flex;
+  gap: var(--qi-space-1);
+  margin-left: auto;
+}
+
+/* -- bottom tab bar (phones) -- */
+.qi-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  height: var(--qi-tabbar-height);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--qi-color-surface);
+  border-top: 1px solid var(--qi-color-border);
+}
+
+#qi-app-content {
+  max-width: var(--qi-max-width);
+  margin: 0 auto;
+  padding: var(--qi-space-5) var(--qi-space-4) var(--qi-space-8);
+  /* room for the fixed bottom tab bar on phones; 0 at >=768px, see responsive.css */
+  padding-bottom: calc(var(--qi-tabbar-height) + env(safe-area-inset-bottom, 0px) + var(--qi-space-6));
+}
+
+.qi-screen > h1 {
+  margin-bottom: var(--qi-space-2);
+}
+
+/* -- stat strip: one unified row with dividers, not separate boxed cards -- */
+.qi-stats-row {
+  display: flex;
+  margin: var(--qi-space-5) 0;
+  background: var(--qi-color-surface);
+  border-radius: var(--qi-radius-lg);
+  box-shadow: var(--qi-shadow-card);
+  overflow: hidden;
+}
+
+.qi-chapter-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first; widened in responsive.css */
+  gap: var(--qi-space-4);
+  margin-bottom: var(--qi-space-6);
+}
+
+.qi-tier-section {
+  margin-bottom: var(--qi-space-6);
+}
+
+.qi-continue-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.qi-lesson-step {
+  margin-bottom: var(--qi-space-6);
+  padding-bottom: var(--qi-space-5);
+}
+
+.qi-step-heading-row {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-3);
+  flex-wrap: wrap;
+}
+
+.qi-exercise-actions {
+  display: flex;
+  gap: var(--qi-space-3);
+  margin: var(--qi-space-4) 0;
+}

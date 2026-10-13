@@ -1,0 +1,86 @@
+/* ==========================================================================
+   QURRA I'rab — Design tokens
+
+   CSS custom properties only. No selectors beyond :root here — every
+   other CSS file consumes these variables instead of hardcoding values,
+   so a future re-theme only touches this file.
+
+   Palette: deep forest green (scholarly, calm) on a warm ivory ground,
+   with warm-paper card surfaces and a muted gold used only for small,
+   restrained highlights (active indicators, completion marks) — never
+   as a decorative fill. See ARCHITECTURE.md's design-system section for
+   the rationale.
+   ========================================================================== */
+
+:root {
+  /* -- color: brand / semantic -- */
+  --qi-color-bg: #f6f1e4;
+  --qi-color-surface: #fffcf5;
+  --qi-color-surface-alt: #efe8d7;
+  --qi-color-border: #ded2b4;
+  --qi-color-text: #22251f;
+  --qi-color-text-muted: #6d6555;
+  --qi-color-primary: #1b4d3e;
+  --qi-color-primary-hover: #143a2f;
+  --qi-color-primary-tint: #e4ece7;
+  --qi-color-primary-contrast: #fffcf5;
+  --qi-color-secondary: #7a5a33;
+  --qi-color-gold: #a9842e;
+  --qi-color-gold-tint: #f3e9d2;
+
+  /* -- content-label badge colors (muted, desaturated — distinct from
+     the gold accent, which is reserved for highlights) -- */
+  --qi-color-source-derived: #3f6475;
+  --qi-color-source-example: #1b4d3e;
+  --qi-color-new-example: #a1623f;
+  --qi-color-needs-review: #8c3f3f;
+  --qi-color-placeholder: #8a8072;
+  --qi-color-complete: #1b4d3e;
+
+  /* -- feedback -- */
+  --qi-color-success-bg: #e4ede4;
+  --qi-color-success-text: #27553f;
+  --qi-color-error-bg: #f3e6e1;
+  --qi-color-error-text: #7a3b2e;
+
+  /* -- type -- */
+  --qi-font-display: "Lora", "Iowan Old Style", "Georgia", serif;
+  --qi-font-ui: "Work Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --qi-font-arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+  --qi-font-size-xs: 0.75rem;
+  --qi-font-size-sm: 0.875rem;
+  --qi-font-size-base: 1rem;
+  --qi-font-size-lg: 1.25rem;
+  --qi-font-size-xl: 1.625rem;
+  --qi-font-size-2xl: 2rem;
+  --qi-font-size-arabic: 1.375rem;
+  --qi-font-size-arabic-md: 1.75rem;
+  --qi-font-size-arabic-lg: 2.25rem;
+  --qi-line-height-base: 1.6;
+  --qi-line-height-arabic: 2.1;
+
+  /* -- spacing -- */
+  --qi-space-1: 0.25rem;
+  --qi-space-2: 0.5rem;
+  --qi-space-3: 0.75rem;
+  --qi-space-4: 1rem;
+  --qi-space-5: 1.5rem;
+  --qi-space-6: 2rem;
+  --qi-space-8: 3rem;
+
+  /* -- layout -- */
+  --qi-radius-sm: 6px;
+  --qi-radius-md: 10px;
+  --qi-radius-lg: 16px;
+  --qi-shadow-card: 0 1px 2px rgba(60, 46, 20, 0.06), 0 4px 14px rgba(60, 46, 20, 0.07);
+  --qi-shadow-raised: 0 2px 4px rgba(60, 46, 20, 0.08), 0 10px 24px rgba(60, 46, 20, 0.10);
+  --qi-max-width: 960px;
+  --qi-header-height: 56px;
+  --qi-tabbar-height: 60px;
+
+  /* -- breakpoints (referenced in comments; media queries can't read
+     custom properties, so responsive.css repeats these values) -- */
+  --qi-bp-mobile: 390px;
+  --qi-bp-tablet: 768px;
+  --qi-bp-desktop: 1440px;
+}
