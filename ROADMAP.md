@@ -428,7 +428,12 @@ chapter delivery) were both run for the original Stage 1 delivery — see
 `tests/qa-smoke-test.js` to rerun it (30/31 passing as of the Tier 10
 pass that completed all 48 chapters — see §9.10 — with the one
 remaining failure being a sandboxed-environment artifact, not an
-application defect; see §9.1). Still needed:
+application defect; see §9.1). A later local re-run on Windows (no
+content changes) passed **31/31** with `CHROMIUM_PATH` pointing at an
+existing Chromium; the same run without `CHROMIUM_PATH` failed at
+browser launch because Playwright 1.64.0 expects Chromium revision 1248
+and only 1243 was installed (setup issue — `npx playwright install
+chromium` fixes it; see `README.md`). Still needed:
 
 - Manual review on an actual phone device, not just a resized headless
   viewport.

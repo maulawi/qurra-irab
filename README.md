@@ -74,6 +74,7 @@ qurra-irab/
 │   └── main.js                  # Bootstrap (DOMContentLoaded → start router)
 ├── tests/
 │   └── qa-smoke-test.js         # Playwright/Chromium browser smoke test (see ARCHITECTURE.md §9)
+├── package.json                 # Dev-only: Playwright dependency + npm test/serve scripts
 ├── ARCHITECTURE.md
 ├── DATA_SCHEMA.md
 ├── ROADMAP.md
@@ -112,6 +113,42 @@ run after every tier (30/31 checks passing as of Tier 10, the one
 failure being a sandboxed-environment artifact, not an app defect — see
 §9.1), but manual phone-device review, cross-browser testing beyond
 Chromium, and a dedicated accessibility pass are all still outstanding.
+
+Most recent verified run (local Windows machine, post-Tier 10, no
+content changes): **31/31 checks passing**, using an existing Chromium
+binary supplied through `CHROMIUM_PATH`. Running the same test with no
+`CHROMIUM_PATH` failed at browser launch on that machine — Playwright
+1.64.0 expects Chromium revision 1248 and only revision 1243 was
+installed — an environment/setup issue, not an app or test defect.
+Running `npx playwright install chromium` (see below) resolves it.
+
+## Running the smoke test (Windows setup)
+
+The app needs no install, but the smoke test needs Node.js and
+Playwright's Chromium. From the project folder, in PowerShell:
+
+```powershell
+npm install                       # installs Playwright (does not download a browser)
+npx playwright install chromium   # one-time browser download
+npm run serve                     # terminal 1: static server on http://127.0.0.1:8743
+npm test                          # terminal 2: runs tests/qa-smoke-test.js
+```
+
+`npm test` expects the app at `http://localhost:8743`; pass another URL
+with `node tests/qa-smoke-test.js http://127.0.0.1:5502` if you serve it
+elsewhere (e.g. Live Server on port 5502). `npm run serve` needs Python
+on PATH; any static file server works.
+
+To use an already-installed Chromium or Chrome instead of downloading
+one, skip the `npx playwright install` step and set `CHROMIUM_PATH`:
+
+```powershell
+$env:CHROMIUM_PATH = 'C:\Path\To\chrome.exe'
+npm test
+```
+
+When `CHROMIUM_PATH` is not set, Playwright's normal browser discovery
+is used.
 
 ## Continuing this work
 

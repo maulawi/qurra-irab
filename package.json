@@ -1,0 +1,13 @@
+{
+  "name": "qurra-irab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QURRA I'rab - static bilingual (EN/MS) Arabic i'rab learning app. package.json exists only to make the Playwright smoke test reproducible; the app itself has no build step.",
+  "scripts": {
+    "serve": "python -m http.server 8743 --bind 127.0.0.1",
+    "test": "node tests/qa-smoke-test.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.0"
+  }
+}
