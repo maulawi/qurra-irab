@@ -31,7 +31,7 @@ const QILessons = {
     chapterId: 1,
     status: "pilot",
     concept: {
-      en: "Every word in an Arabic sentence plays a job (ma'mul) assigned by something that governs it (the 'amil). The result of that governance — raf', nasb, jarr or jazm — is the 'amal. This lesson introduces that vocabulary and the three different ways its result can actually show up on a word.",
+      en: "Every word in an Arabic sentence is a ma'mul — a governed word — whose ending is determined by whatever governs it (the 'amil). The result of that governance — raf', nasb, jarr or jazm — is the 'amal. This lesson introduces that vocabulary and the three different ways its result can actually show up on a word.",
       ms: "Setiap kata dalam ayat Arab memainkan peranan (ma'mul) yang ditentukan oleh sesuatu yang mentadbirnya (al-'amil). Hasil tadbiran itu — raf', nasb, jarr atau jazm — ialah al-'amal. Pelajaran ini memperkenalkan istilah tersebut dan tiga cara hasil itu ditunjukkan pada sesuatu kata."
     },
     rule: {
