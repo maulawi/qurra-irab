@@ -45,6 +45,14 @@ const QILessons = {
       citation: { chapter: 1, pdfPages: [7, 7], printedPage: 6 },
       arabic: "يَكْتُبُ التِّلْمِيذُ",
       gloss: { en: "The student writes.", ms: "Pelajar itu menulis." },
+      // Book's own Arabic i'rab of this example (PDF p.7 = printed p.6, under
+      // «1 - لفظي»), read from the page image. Complete; no uncertain words
+      // beyond ordinary diacritics. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 1, pdfPages: [7, 7], printedPage: 6 },
+        text: "يكتبُ: فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة في آخره. التلميذُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة في آخره."
+      },
       words: [
         { id: "w1", ar: "يَكْتُبُ", role: { en: "present-tense verb (fi'l mudari')", ms: "kata kerja kini (fi'l mudari')" }, case: "raf'", sign: { en: "apparent damma (damma zahira)", ms: "damma zahir" }, reason: { en: "A present-tense verb not preceded by a jazm/nasb particle defaults to raf', shown lafzi because nothing blocks the damma from being pronounced.", ms: "Kata kerja kini yang tidak didahului huruf jazm/nasb kekal raf', ditunjukkan secara lafzi kerana tiada apa yang menghalang damma disebut." } },
         { id: "w2", ar: "التِّلْمِيذُ", role: { en: "fa'il (subject)", ms: "fa'il (pelaku)" }, case: "raf'", sign: { en: "apparent damma (damma zahira)", ms: "damma zahir" }, reason: { en: "The fa'il of a verb is always raf'; here too the damma is apparent (lafzi) because the word's final letter carries it without difficulty.", ms: "Fa'il bagi sesuatu kata kerja sentiasa raf'; di sini juga damma itu lafzi kerana huruf akhir kata menanggungnya tanpa kesukaran." } }
@@ -484,6 +492,16 @@ const QILessons = {
       citation: { chapter: 2, pdfPages: [9, 9] },
       arabic: "يَلْعَبَانِ",
       gloss: { en: "The two of them play.", ms: "Mereka berdua bermain." },
+      // Pilot (Ch2 only): the book's own Arabic i'rab of this example, as
+      // printed under it on PDF p.9 (undiacritised in the source). Read from
+      // the page image, not from a translation. NOTE: the preservation guide's
+      // §2C transcription of this line omits «نيابة عن الضمة»; the page text
+      // is used here. A second reader should confirm before roll-out.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 2, pdfPages: [9, 9] },
+        text: "يلعبان: فعل مضارع مرفوع وعلامة رفعه ثبوت النون نيابة عن الضمة لأنه من الأفعال الخمسة، والألف: ضمير متصل مبني على السكون في محل رفع فاعل."
+      },
       words: [
         { id: "w1", ar: "يَلْعَبَانِ", role: { en: "present-tense verb (one of the five verbs)", ms: "kata kerja kini (salah satu daripada af'al khamsah)" }, case: "raf'", sign: { en: "thubut al-nun (the nun stays, in place of a damma)", ms: "thubut al-nun (nun kekal, menggantikan damma)" }, reason: { en: "Nothing precedes this verb to force nasb or jazm, so it defaults to raf'; because it's a five-verb, that raf' shows as the nun simply remaining — niyaba 'an al-damma — rather than as a damma itself.", ms: "Tiada apa mendahului kata kerja ini untuk memaksa nasb atau jazm, maka ia kekal raf' secara lazim; kerana ia salah satu af'al khamsah, raf' itu ditunjukkan sebagai nun yang kekal — niyabah 'an al-damma — bukan sebagai damma itu sendiri." } },
         { id: "w2", ar: "الألف", role: { en: "fa'il — the bound dual pronoun embedded in the verb", ms: "fa'il — kata ganti nama dwi terikat yang tersemat dalam kata kerja" }, case: "raf' (mahalli)", sign: { en: "mabni on sukun", ms: "mabni sukun" }, reason: { en: "A bound pronoun is always mabni and never carries an apparent case marker of its own, so its raf' here is purely positional — mahalli, the same category Chapter 1 introduced.", ms: "Kata ganti nama terikat sentiasa mabni dan tidak pernah membawa tanda kes yang kelihatan sendiri, maka raf'nya di sini semata-mata kedudukan — mahalli, kategori yang sama diperkenalkan Bab 1." } }
@@ -557,6 +575,13 @@ const QILessons = {
       citation: { chapter: 3, pdfPages: [11, 11] },
       arabic: "مَشَى الطِّفْلُ",
       gloss: { en: "The child walked.", ms: "Kanak-kanak itu berjalan." },
+      // Book's own Arabic i'rab of this example (PDF p.11; title page, no
+      // printed number). Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 3, pdfPages: [11, 11] },
+        text: "مشى: فعل ماضٍ مبني على فتح مقدّر على الألف للتعذّر. الطفلُ: فاعل مرفوع وعلامة رفعه ضمة ظاهرة في آخره."
+      },
       words: [
         { id: "w1", ar: "مَشَى", role: { en: "past-tense verb (fi'l madi)", ms: "kata kerja lampau (fi'l madi)" }, case: "—", sign: { en: "mabni on implied fatha (fatha muqaddara 'ala al-alif)", ms: "mabni fathah tersirat ('ala al-alif)" }, reason: { en: "مشى ends in alif; a fatha can never be pronounced on an alif, so the bina' shows taqdiri — exactly the mechanism Chapter 1 introduced for i'rab, here applied to bina' instead.", ms: "مشى berakhir dengan alif; fathah tidak boleh disebut pada alif, maka bina'nya taqdiri — mekanisme yang sama diperkenalkan Bab 1 untuk i'rab, di sini terpakai pada bina' pula." } },
         { id: "w2", ar: "الطِّفْلُ", role: { en: "fa'il", ms: "fa'il" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The fa'il of a verb is always raf' (Chapter 21); an ordinary noun shows it as an apparent damma.", ms: "Fa'il bagi sesuatu kata kerja sentiasa raf' (Bab 21); kata nama biasa menunjukkannya sebagai damma zahir." } }
@@ -685,6 +710,16 @@ const QILessons = {
       citation: { chapter: 5, pdfPages: [17, 17] },
       arabic: "قَدِمَ الفَتَى",
       gloss: { en: "The young man arrived.", ms: "Pemuda itu tiba." },
+      // Book's own Arabic i'rab of this example (PDF p.17; title page, no
+      // printed number). It appears inside the book's definition paragraph, not
+      // in its «2 - الإعراب» section, and the book analyses only «الفتى» (the verb
+      // is not analysed there). Heavily vocalised; second-reader confirmation
+      // pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 5, pdfPages: [17, 17] },
+        text: "الفتى: فاعل قَدِمَ، مرفوع بالضمة المقدّرة على الألف للتعذّر."
+      },
       words: [
         { id: "w1", ar: "قَدِمَ", role: { en: "past-tense verb", ms: "kata kerja lampau" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "A sound-rooted past-tense verb with nothing attached defaults to apparent fatha (Chapter 3).", ms: "Kata kerja lampau berakar sahih tanpa apa-apa tersambung kekal fathah zahir secara lazim (Bab 3)." } },
         { id: "w2", ar: "الفَتَى", role: { en: "fa'il", ms: "fa'il" }, case: "raf'", sign: { en: "implied damma (damma muqaddara 'ala al-alif, blocked by ta'adhdhur)", ms: "damma tersirat ('ala al-alif, dihalang ta'adhdhur)" }, reason: { en: "This is exactly the word Chapter 1 used to introduce taqdiri raf' and pointed forward to this chapter for: الفتى ends in alif, so its raf' can never be pronounced — only ever implied.", ms: "Inilah tepatnya kata yang digunakan Bab 1 untuk memperkenalkan raf' taqdiri dan menunjuk ke bab ini: الفتى berakhir dengan alif, maka raf'nya tidak pernah dapat disebut — hanya sentiasa tersirat." } }
@@ -758,6 +793,18 @@ const QILessons = {
       citation: { chapter: 6, pdfPages: [19, 19], printedPage: 18 },
       arabic: "اللَّيَالِي مَوَاضٍ",
       gloss: { en: "The nights pass.", ms: "Malam-malam itu berlalu." },
+      // Book's own Arabic i'rab of the two words of this example, as printed on
+      // the chapter's title page (PDF p.18) under the sentence «الليالي مواضٍ
+      // بحوادثها»; the book does not analyse «بحوادثها» there. NOTE: this
+      // example's own citation above says PDF p.19 / printed p.18, which does not
+      // match the title page (PDF p.18) where this passage is — that discrepancy
+      // is unresolved. The book gives two analyses of «مواضٍ» (the second
+      // introduced by «والأسهل إعرابها»); both are kept as printed.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 6, pdfPages: [18, 18] },
+        text: "الليالي: مبتدأ مرفوع وعلامة رفعه ضمة مقدّرة على الياء للثقل. مواضٍ: خبر مرفوع، وعلامة رفعه ضمة مقدّرة على الياء المحذوفة للتخفيف، والتنوين: عوض عن الياء. والأسهل إعرابها: خبر مرفوع وعلامة رفعه الضمة المقدّرة على الياء المحذوفة، والتنوين: عوض عن الياء."
+      },
       words: [
         { id: "w1", ar: "اللَّيَالِي", role: { en: "mubtada'", ms: "mubtada'" }, case: "raf'", sign: { en: "implied damma on the ya' (damma muqaddara lil-thiql)", ms: "damma tersirat pada ya' (damma muqaddarah lil-thiql)" }, reason: { en: "الليالي is definite, so it keeps its ya'; the damma is only hidden because it's heavy to pronounce there, not because it's impossible — thiql, a different taqdir-trigger from Chapter 5's ta'adhdhur.", ms: "الليالي makrifat, maka ia mengekalkan ya'nya; damma hanya tersembunyi kerana berat untuk disebut di situ, bukan kerana mustahil — thiql, pencetus taqdir yang berbeza daripada ta'adhdhur Bab 5." } },
         { id: "w2", ar: "مَوَاضٍ", role: { en: "khabar", ms: "khabar" }, case: "raf'", sign: { en: "implied damma on the dropped ya' (damma muqaddara 'ala al-ya' al-mahdhufa), tanwin standing as 'iwad for the ya'", ms: "damma tersirat pada ya' yang gugur (damma muqaddarah 'ala al-ya' al-mahdhufah), tanwin bertindak sebagai 'iwad bagi ya'" }, reason: { en: "مواضٍ is indefinite, so its ya' is dropped for takhfif and the tanwin compensates for the missing letter — the second, distinct manqus mechanism, not another reading of اللَّيَالِي's.", ms: "مواضٍ nakirah, maka ya'nya digugurkan untuk takhfif dan tanwin memampas huruf yang hilang — mekanisme manqus kedua yang berbeza, bukan bacaan lain bagi اللَّيَالِي." } }
@@ -1207,6 +1254,14 @@ const QILessons = {
       citation: { chapter: 24, pdfPages: [123, 123] },
       arabic: "كَانَ الطَّقْسُ بَارِدًا",
       gloss: { en: "The weather was cold.", ms: "Cuaca sejuk (pada masa itu)." },
+      // Book's own Arabic i'rab of this example (PDF p.123; title page, no
+      // printed number), under «2 - الإعراب». Complete (ends at the page end).
+      // Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 24, pdfPages: [123, 123] },
+        text: "كان: فعل ماضٍ ناقص يدخل على المبتدأ والخبر فيرفع الأول اسمًا له وينصب الثاني خبرًا له. الطقسُ: اسم كان مرفوع وعلامة رفعه الضمة. باردًا: خبر كان منصوب، وعلامة نصبه الفتحة."
+      },
       words: [
         { id: "w1", ar: "كَانَ", role: { en: "deficient verb (kana wa akhawatuha)", ms: "kata kerja tak lengkap (kana dan saudarinya)" }, case: "—", sign: { en: "fi'l madi; itself carries no case ending to track", ms: "fi'l madi; tiada tanda kes sendiri untuk disemak" }, reason: { en: "Enters on a ready-made mubtada'/khabar pair and reassigns their case: the first becomes its ism (raf'), the second its khabar (nasb).", ms: "Memasuki pasangan mubtada'/khabar sedia ada dan menukar semula kesnya: yang pertama menjadi ismnya (raf'), yang kedua khabarnya (nasb)." } },
         { id: "w2", ar: "الطَّقْسُ", role: { en: "ism kana", ms: "ism kana" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "What would have been the mubtada' before kana entered — kana keeps it raf', just relabeled as its ism.", ms: "Apa yang sepatutnya menjadi mubtada' sebelum kana memasuki — kana mengekalkannya raf', cuma dilabel semula sebagai ismnya." } },
@@ -1349,6 +1404,14 @@ const QILessons = {
       citation: { chapter: 26, pdfPages: [131, 131] },
       arabic: "مَا الكَسْلَانُ مَشْكُورًا",
       gloss: { en: "The lazy one is not praised.", ms: "Si pemalas tidak dipuji." },
+      // Book's own Arabic i'rab of this example (PDF p.131). The book heads it
+      // «ما الكسلانُ مشكورًا: أو بمشكورٍ:» (alternative with the زائدة باء); the
+      // analysis below is the line that follows. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 26, pdfPages: [131, 131] },
+        text: "ما: نافية، تعمل عمل ليس في رفع الاسم ونصب الخبر. الكسلانُ: اسم ما مرفوع، وعلامة رفعه ضمة ظاهرة في آخره. مشكورًا: خبر ما منصوب وعلامة نصبه فتحة ظاهرة في آخره."
+      },
       words: [
         { id: "w1", ar: "مَا", role: { en: "negation particle, operates like laysa", ms: "huruf nafi, beroperasi seperti laysa" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "Borrows لَيْسَ's governance exactly: raf' the first word as its ism, nasb the second as its khabar.", ms: "Meminjam operasi لَيْسَ secara tepat: raf' perkataan pertama sebagai ismnya, nasb perkataan kedua sebagai khabarnya." } },
         { id: "w2", ar: "الكَسْلَانُ", role: { en: "ism ما", ms: "ism ما" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The sentence's subject — raf' exactly as it would be as an ordinary mubtada', before ما entered.", ms: "Subjek ayat — raf' sepertimana ia menjadi mubtada' biasa, sebelum ما memasuki." } },
@@ -1418,6 +1481,13 @@ const QILessons = {
       citation: { chapter: 27, pdfPages: [134, 134] },
       arabic: "إِنَّ الطَّقْسَ جَمِيلٌ",
       gloss: { en: "Indeed the weather is beautiful.", ms: "Sesungguhnya cuaca itu indah." },
+      // Book's own Arabic i'rab of this example (PDF p.134). Read from the page
+      // image; second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 27, pdfPages: [134, 134] },
+        text: "إنَّ: حرف توكيد، من الأحرف المشبهة بالأفعال ينصب الاسم ويرفع الخبر. الطقسَ: اسم إنَّ منصوب وعلامة نصبه فتحة ظاهرة في آخره. جميلٌ: خبر إنَّ مرفوع وعلامة رفعه ضمة ظاهرة في آخره."
+      },
       words: [
         { id: "w1", ar: "إِنَّ", role: { en: "emphasis particle (inna wa akhawatuha)", ms: "huruf penegasan (inna dan saudarinya)" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "The mirror image of Chapter 24's kana: nasb the first word as its ism, leave the second raf' as its khabar.", ms: "Bayangan cermin kana Bab 24: nasb perkataan pertama sebagai ismnya, biarkan perkataan kedua raf' sebagai khabarnya." } },
         { id: "w2", ar: "الطَّقْسَ", role: { en: "ism إنّ", ms: "ism إنّ" }, case: "nasb", sign: { en: "apparent fatha", ms: "fatha zahir" }, reason: { en: "What would have been the mubtada' — إنّ pushes it from raf' to nasb; compare Chapter 24's كَانَ الطَّقْسُ, where the same word stayed raf'.", ms: "Apa yang sepatutnya menjadi mubtada' — إنّ menukarnya daripada raf' kepada nasb; bandingkan كَانَ الطَّقْسُ Bab 24, di mana perkataan yang sama kekal raf'." } },
@@ -1574,6 +1644,13 @@ const QILessons = {
       citation: { chapter: 36, pdfPages: [177, 177] },
       arabic: "فِي الصَّفِّ تِسْعَةَ عَشَرَ تِلْمِيذًا",
       gloss: { en: "In the classroom [there are] nineteen students.", ms: "Di dalam kelas itu [terdapat] sembilan belas orang pelajar." },
+      // Book's own Arabic i'rab of this example (PDF p.177; title page, no
+      // printed number). Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 36, pdfPages: [177, 177] },
+        text: "في: حرف جر متعلق بخبر مقدّم محذوف تقديره موجود. الصف: مجرور بفي. تسعةَ عشرَ: عدد مركب مبني الجزأين على الفتح في محل رفع مبتدأ مؤخر. تلميذًا: تمييز منصوب."
+      },
       words: [
         { id: "w1", ar: "فِي", role: { en: "preposition", ms: "kata sendi" }, case: "—", sign: { en: "harf jarr; carries no case ending, muta'alliq to an elided fronted khabar", ms: "harf jarr; tidak membawa tanda kes, muta'alliq kepada khabar muqaddam yang digugurkan" }, reason: { en: "في الصف opens the sentence as an elided khabar muqaddam's jar-majrur — the same existential pattern Chapter 23 introduced for khabar muqaddam wujuban.", ms: "في الصف membuka ayat sebagai jar-majrur bagi khabar muqaddam yang digugurkan — pola wujud yang sama diperkenalkan Bab 23 bagi khabar muqaddam wujuban." } },
         { id: "w2", ar: "الصَّفِّ", role: { en: "majrur by في", ms: "majrur oleh في" }, case: "jarr", sign: { en: "apparent kasra", ms: "kasrah zahir" }, reason: { en: "Any noun directly after a preposition is jarr; an ordinary noun shows this as an apparent kasra.", ms: "Mana-mana kata nama terus selepas kata sendi ialah jarr; kata nama biasa menunjukkan ini sebagai kasrah zahir." } },
@@ -1647,6 +1724,13 @@ const QILessons = {
       citation: { chapter: 37, pdfPages: [180, 180] },
       arabic: "جَاءَ الفَتَى مُبْتَسِمًا",
       gloss: { en: "The young man came, smiling.", ms: "Pemuda itu datang, sambil tersenyum." },
+      // Book's own Arabic i'rab of this example (PDF p.180; title page, no
+      // printed number). Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 37, pdfPages: [180, 180] },
+        text: "جاء: فعل ماضٍ. الفتى: فاعل مرفوع، وعلامة رفعه ضمة مقدّرة على الألف للتعذّر. مبتسمًا: حال من الفتى منصوبة وفاعل مبتسمًا ضمير مستتر تقديره: هو، وهو الرابط."
+      },
       words: [
         { id: "w1", ar: "جَاءَ", role: { en: "past-tense verb (fi'l madi)", ms: "kata kerja lampau (fi'l madi)" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "A sound-rooted past-tense verb with nothing attached defaults to apparent fatha (Chapter 3).", ms: "Kata kerja lampau berakar sahih tanpa apa-apa tersambung kekal fathah zahir secara lazim (Bab 3)." } },
         { id: "w2", ar: "الفَتَى", role: { en: "fa'il", ms: "fa'il" }, case: "raf'", sign: { en: "implied damma (damma muqaddara 'ala al-alif, blocked by ta'adhdhur)", ms: "damma tersirat ('ala al-alif, dihalang ta'adhdhur)" }, reason: { en: "الفتى is the same maqsur noun Chapter 5 built its whole lesson around: it ends in alif, so its raf' can never be pronounced — only ever implied.", ms: "الفتى ialah isim maqsur yang sama yang menjadi tumpuan keseluruhan pelajaran Bab 5: ia berakhir dengan alif, maka raf'nya tidak pernah dapat disebut — hanya sentiasa tersirat." } },
@@ -2228,6 +2312,13 @@ const QILessons = {
       citation: { chapter: 19, pdfPages: [97, 97] },
       arabic: "كَيْفَ حَالُكَ؟",
       gloss: { en: "How are you?", ms: "Apa khabar?" },
+      // Book's own Arabic i'rab of this example (PDF p.97). Read from the page
+      // image; second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 19, pdfPages: [97, 97] },
+        text: "كيف: اسم استفهام مبني على الفتح في محل رفع خبر مقدّم. حالُك: مبتدأ مؤخر مرفوع وعلامة رفعه الضمة، وهو مضاف، والكاف: ضمير متصل مبني على الفتح في محل جر بالإضافة."
+      },
       words: [
         { id: "w1", ar: "كَيْفَ", role: { en: "khabar muqaddam", ms: "khabar muqaddam" }, case: "raf'", sign: { en: "mabni on fatha, mahall raf'", ms: "mabni pada fathah, mahal raf'" }, reason: { en: "كيف is mabni on fatha regardless of position; here it stands in raf' mahall as the fronted khabar.", ms: "كيف mabni pada fathah tidak kira kedudukan; di sini ia berkedudukan raf' sebagai khabar yang didahulukan." } },
         { id: "w2", ar: "حَالُكَ", role: { en: "mubtada' mu'akhkhar (delayed mubtada')", ms: "mubtada' mu'akhkhar" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "Delayed mubtada', raf' with a visible damma, mudaf to the attached kaf.", ms: "Mubtada' yang ditangguhkan, raf' dengan damma yang zahir, mudaf kepada kaf yang bersambung." } }
@@ -2373,6 +2464,14 @@ const QILessons = {
       citation: { chapter: 30, pdfPages: [162, 162] },
       arabic: "هَلْ شَارِحٌ الأُسْتَاذُ الدَّرْسَ؟",
       gloss: { en: "Is the teacher explaining the lesson?", ms: "Adakah guru itu menerangkan pelajaran itu?" },
+      // Book's own Arabic i'rab of this example (PDF p.162; title page, no
+      // printed number). The book ends this passage with ". . ." — kept as
+      // printed. Second-reader check needed, esp. the vowels on «سدَّ مسدَّ».
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 30, pdfPages: [162, 162] },
+        text: "هل: حرف استفهام. شارحٌ: مبتدأ مرفوع. الأستاذُ: فاعل شارح مرفوع، سدَّ مسدَّ الخبر. الدرسَ: مفعول به منصوب. . ."
+      },
       words: [
         { id: "w1", ar: "هَلْ", role: { en: "interrogative particle", ms: "huruf istifham" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "Opens the question; attaches no case of its own.", ms: "Membuka soalan; tidak membawa sebarang kes sendiri." } },
         { id: "w2", ar: "شَارِحٌ", role: { en: "mubtada', and an ism al-fa'il with its own fa'il", ms: "mubtada', dan ism al-fa'il yang membawa fa'ilnya sendiri" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "An ism al-fa'il derived from a transitive verb still governs like that verb even while standing as mubtada'.", ms: "Ism al-fa'il terbitan kata kerja transitif tetap beroperasi seperti kata kerja itu walaupun berdiri sebagai mubtada'." } },
@@ -2447,6 +2546,13 @@ const QILessons = {
       citation: { chapter: 31, pdfPages: [165, 165] },
       arabic: "الصَّدِيقُ أَكْرَمُ مِنْ أَخِي",
       gloss: { en: "The friend is more generous than my brother.", ms: "Sahabat itu lebih pemurah daripada abang saya." },
+      // Book's own Arabic i'rab of this example (PDF p.165). Read from the page
+      // image; second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 31, pdfPages: [165, 165] },
+        text: "الصديقُ: مبتدأ مرفوع. أكرمُ: خبر المبتدأ مرفوع، وفاعل أكرمُ ضمير مستتر وجوبًا على خلاف الأصل، تقديره هو يعود على الصديق. من: حرف جر متعلق بأكرم. أخي: مجرور بمن، وعلامة جرّه الكسرة، وهو مضاف، والياء: ضمير متصل مضاف إليه."
+      },
       words: [
         { id: "w1", ar: "الصَّدِيقُ", role: { en: "mubtada'", ms: "mubtada'" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The mubtada' of a nominal sentence is raf'.", ms: "Mubtada' bagi ayat nominal ialah raf'." } },
         { id: "w2", ar: "أَكْرَمُ", role: { en: "khabar al-mubtada', an ism tafdil carrying its own hidden fa'il", ms: "khabar al-mubtada', ism tafdil yang membawa fa'il tersiratnya sendiri" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "Its hidden fa'il, referring back to الصديق, is mandatory here — unlike an ordinary hidden pronoun, which is only optional.", ms: "Fa'il tersiratnya, merujuk kembali kepada الصديق, adalah wajib di sini — berbeza daripada kata ganti nama tersirat biasa, yang hanya pilihan." } },
@@ -2521,6 +2627,13 @@ const QILessons = {
       citation: { chapter: 32, pdfPages: [168, 168] },
       arabic: "مَا أَجْمَلَ الرَّبِيعَ",
       gloss: { en: "How beautiful the spring is!", ms: "Alangkah indahnya musim bunga!" },
+      // Book's own Arabic i'rab of this example (PDF p.168). Read from the page
+      // image; second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 32, pdfPages: [168, 168] },
+        text: "ما: تعجبية، في محل رفع مبتدأ. أجملَ: فعل ماضٍ للتعجب، مبني على فتح ظاهر في آخره، وفاعله ضمير مستتر فيه وجوبًا على خلاف الأصل تقديره هو، يعود إلى ما، وجملة أجملَ في محل رفع خبر المبتدأ. الربيعَ: مفعول به منصوب."
+      },
       words: [
         { id: "w1", ar: "مَا", role: { en: "ta'ajjub particle, standing as mubtada'", ms: "huruf ta'ajjub, berdiri sebagai mubtada'" }, case: "raf' (mahalli)", sign: { en: "mabni; carries no apparent ending of its own", ms: "mabni; tiada tanda zahir sendiri" }, reason: { en: "The ta'ajjubiyya ما opens the sentence as its mubtada'.", ms: "ما ta'ajjubiyyah membuka ayat sebagai mubtada'nya." } },
         { id: "w2", ar: "أَجْمَلَ", role: { en: "ta'ajjub verb, carrying a hidden fa'il referring to ما; the whole verb phrase is khabar of ما", ms: "kata kerja ta'ajjub, membawa fa'il tersirat merujuk kepada ما; keseluruhan frasa kata kerja ialah khabar bagi ما" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "A ta'ajjub verb in this sigha is always mabni on fatha, with a hidden fa'il referring back to ما.", ms: "Kata kerja ta'ajjub dalam sighah ini sentiasa mabni fathah, dengan fa'il tersirat merujuk kembali kepada ما." } },
@@ -2594,6 +2707,13 @@ const QILessons = {
       citation: { chapter: 33, pdfPages: [171, 171] },
       arabic: "النَّارَ يَا صَغِيرُ",
       gloss: { en: "The fire, little one! (Watch out for the fire!)", ms: "Api, wahai budak kecil! (Hati-hati dengan api!)" },
+      // Book's own Arabic i'rab of this example (PDF p.171; title page, no
+      // printed number). Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 33, pdfPages: [171, 171] },
+        text: "النارَ: مفعول به لفعل محذوف تقديره: احذر. يا: حرف نداء. صغيرُ: منادى مبني على الضم في محل نصب."
+      },
       words: [
         { id: "w1", ar: "النَّارَ", role: { en: "maf'ul bih of an elided verb (estimated: احذر)", ms: "maf'ul bih bagi kata kerja tersirat (dianggarkan: احذر)" }, case: "nasb", sign: { en: "apparent fatha", ms: "fathah zahir" }, reason: { en: "Tahzir nasbs the thing to be avoided by a verb the context implies but never states.", ms: "Tahzir me-nasb-kan perkara yang perlu dielakkan melalui kata kerja yang disiratkan konteks tetapi tidak pernah dinyatakan." } },
         { id: "w2", ar: "يَا", role: { en: "particle of address (nida')", ms: "huruf seruan (nida')" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "Introduces the person being addressed.", ms: "Memperkenalkan orang yang diseru." } },
@@ -2667,6 +2787,14 @@ const QILessons = {
       citation: { chapter: 34, pdfPages: [174, 174] },
       arabic: "الاجْتِهَادَ الاجْتِهَادَ",
       gloss: { en: "Diligence, diligence! (Hold fast to diligence!)", ms: "Kesungguhan, kesungguhan! (Berpegang teguhlah kepada kesungguhan!)" },
+      // Book's own Arabic i'rab of this example (PDF p.174; title page, no
+      // printed number). The final vowel of «الزم» was not confirmed and is
+      // left unmarked. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 34, pdfPages: [174, 174] },
+        text: "الاجتهادَ: مفعول به لفعل محذوف تقديره: الزم الاجتهادَ، الاجتهادَ الثاني: توكيد لفظي للأول."
+      },
       words: [
         { id: "w1", ar: "الاجْتِهَادَ", role: { en: "maf'ul bih of an elided verb (estimated: الزم)", ms: "maf'ul bih bagi kata kerja tersirat (dianggarkan: الزم)" }, case: "nasb", sign: { en: "apparent fatha", ms: "fathah zahir" }, reason: { en: "Ighra' nasbs the thing to commit to by a verb the context implies but never states.", ms: "Ighra' me-nasb-kan perkara yang perlu komited melalui kata kerja yang disiratkan konteks tetapi tidak pernah dinyatakan." } },
         { id: "w2", ar: "الاجْتِهَادَ", role: { en: "tawkid lafzi for the first الاجتهادَ", ms: "tawkid lafzi bagi الاجتهادَ yang pertama" }, case: "nasb", sign: { en: "apparent fatha", ms: "fathah zahir" }, reason: { en: "A doubled ighra' noun repeats the same word as tawkid lafzi, matching its case.", ms: "Kata nama ighra' yang digandakan mengulangi perkataan yang sama sebagai tawkid lafzi, sepadan kesnya." } }
@@ -2739,6 +2867,25 @@ const QILessons = {
       citation: { chapter: 35, pdfPages: [175, 175] },
       arabic: "قَامَ وَسَافَرَ الصَّدِيقُ",
       gloss: { en: "The friend stood up and traveled.", ms: "Sahabat itu bangun dan bermusafir." },
+      // Book's own Arabic i'rab of this example, as TWO passages in the book's
+      // order (PDF p.175; title page, no printed number): the analysis, then
+      // the second permitted reading. Headings mirror QURRA's own "Reading 1 /
+      // Reading 2" labels in the dual-analysis callout below. Second-reader
+      // confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 35, pdfPages: [175, 175] },
+        passages: [
+          {
+            heading: { en: "Reading 1", ms: "Bacaan 1" },
+            text: "قام: فعل ماضٍ، فاعله ضمير مستتر تقديره هو يعود إلى الصديق. وسافر: الواو: حرف عطف، سافر: فعل ماضٍ مبني على الفتح. الصديقُ: فاعل سافر مرفوع، وجملة سافر الصديق معطوفة على جملة قام من الفعل والفاعل."
+          },
+          {
+            heading: { en: "Reading 2", ms: "Bacaan 2" },
+            text: "يجوز أيضًا أن يكون الصديقُ فاعلاً لقامَ؛ وفاعل سافر ضميرًا مستترًا فيه جوازًا تقديره هو."
+          }
+        ]
+      },
       words: [
         { id: "w1", ar: "قَامَ", role: { en: "past-tense verb, competing with سَافَرَ for الصَّدِيقُ; here (primary reading) taking a hidden fa'il referring forward to it", ms: "kata kerja lampau, bersaing dengan سَافَرَ bagi الصَّدِيقُ; di sini (bacaan utama) mengambil fa'il tersirat merujuk ke hadapan kepadanya" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "In the book's primary (second-operator) reading, the noun is assigned to the closer verb سافر, so قام instead takes a hidden pronoun fa'il.", ms: "Dalam bacaan utama (operator kedua) buku itu, kata nama ditetapkan kepada kata kerja yang lebih dekat سافر, maka قام sebaliknya mengambil fa'il kata ganti nama tersirat." } },
         { id: "w2", ar: "وَ", role: { en: "conjunction ('atf)", ms: "kata hubung ('atf)" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "Joins the two competing verb clauses.", ms: "Menyambungkan kedua-dua klausa kata kerja yang bersaing." } },
@@ -2817,6 +2964,15 @@ const QILessons = {
       citation: { chapter: 38, pdfPages: [184, 184] },
       arabic: "جَاءَ التَّلَامِيذُ إِلَّا عَادِلًا",
       gloss: { en: "The students came, except 'Adil.", ms: "Pelajar-pelajar itu datang, kecuali 'Adil." },
+      // Book's own Arabic i'rab of this example (PDF p.184; title page, no
+      // printed number). Only the analysis line is included; the paragraph that
+      // follows it in the book (why the mustathna is nasb) is not. Second-reader
+      // confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 38, pdfPages: [184, 184] },
+        text: "جاء: فعل ماضٍ. التلاميذُ: فاعل جاء مرفوع. إلا: أداة استثناء حرف. عادلاً: مستثنى منصوب على الاستثناء، وعلامة نصبه فتحة ظاهرة في آخره."
+      },
       words: [
         { id: "w1", ar: "جَاءَ", role: { en: "past-tense verb", ms: "kata kerja lampau" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "A sound-rooted past-tense verb with nothing attached defaults to apparent fatha.", ms: "Kata kerja lampau berakar sahih tanpa apa-apa tersambung kekal fathah zahir secara lazim." } },
         { id: "w2", ar: "التَّلَامِيذُ", role: { en: "fa'il, and the mustathna minhu", ms: "fa'il, dan mustathna minhu" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The fa'il of جاء; also the group the exception is taken out of.", ms: "Fa'il bagi جاء; juga kumpulan yang dikecualikan daripadanya." } },
@@ -3039,6 +3195,14 @@ const QILessons = {
       citation: { chapter: 45, pdfPages: [213, 213] },
       arabic: "جَاءَ الرَّئِيسُ نَفْسُهُ",
       gloss: { en: "The president himself came.", ms: "Presiden itu sendiri datang." },
+      // Book's own Arabic i'rab of this example (PDF p.213; title page, no
+      // printed number). The vowels on «المؤكد … المؤكد» were not confirmed and
+      // are left unmarked. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 45, pdfPages: [213, 213] },
+        text: "جاءَ: فعل ماضٍ مبني على الفتح. الرئيسُ: فاعل مرفوع. نفسُه: توكيد معنوي للرئيس والمؤكد يتبع المؤكد في إعرابه تبعه في الرفع، وعلامة رفعه ضمة ظاهرة في آخره، وهو مضاف، والهاء: ضمير متصل مبني على الضم في محل جر بالإضافة."
+      },
       words: [
         { id: "w1", ar: "جَاءَ", role: { en: "past-tense verb", ms: "kata kerja lampau" }, case: "—", sign: { en: "mabni on apparent fatha", ms: "mabni fathah zahir" }, reason: { en: "A sound-rooted past-tense verb defaults to apparent fatha.", ms: "Kata kerja lampau berakar sahih kekal fathah zahir secara lazim." } },
         { id: "w2", ar: "الرَّئِيسُ", role: { en: "fa'il, and the mu'akkad", ms: "fa'il, dan mu'akkad" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The fa'il of جاء; also the word نفسه strengthens.", ms: "Fa'il bagi جاء; juga perkataan yang dikuatkan oleh نفسه." } },
@@ -3186,6 +3350,15 @@ const QILessons = {
       citation: { chapter: 39, pdfPages: [190, 190] },
       arabic: "يَا سَلِيمُ",
       gloss: { en: "O Salim!", ms: "Wahai Salim!" },
+      // Book's own Arabic i'rab of this example (PDF p.190; title page, no
+      // printed number). The explanatory paragraph that follows in the book is
+      // not included. Second-reader confirmation pending (vowels on «المُعَوَّض»,
+      // «أُنادي»).
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 39, pdfPages: [190, 190] },
+        text: "يا: حرف نداء. سليمُ: منادى مبني على الضم لأنه مفرد علم، وهو في محل نصب مفعول به لفعل النداء المحذوف المُعَوَّض عنه بحرف النداء، والتقدير: أُنادي أو: أدعو سليمًا."
+      },
       words: [
         { id: "w1", ar: "يَا", role: { en: "harf al-nida' (vocative particle)", ms: "harf al-nida' (huruf seruan)" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "يا is the most famous and most-used vocative particle, for both near and far address.", ms: "يا ialah huruf nida' yang paling masyhur dan paling banyak digunakan, bagi seruan dekat dan jauh." } },
         { id: "w2", ar: "سَلِيمُ", role: { en: "munada, mufrad 'alam", ms: "munada, mufrad 'alam" }, case: "—", sign: { en: "mabni on damma", ms: "mabni damma" }, reason: { en: "A mufrad 'alam munada is mabni on damma, and it sits in mahall nasb as maf'ul bih for the elided verb of calling that يا substitutes for — taqdir: أنادي or أدعو سليمًا.", ms: "Munada mufrad 'alam adalah mabni pada damma, dan ia berada dalam mahal nasb sebagai maf'ul bih bagi kata kerja memanggil yang digugurkan yang digantikan oleh يا — taqdir: أنادي atau أدعو سليمًا." } }
@@ -3258,6 +3431,15 @@ const QILessons = {
       citation: { chapter: 40, pdfPages: [198, 198] },
       arabic: "يَا لَلطَّبِيبِ لِلْمَرِيضِ",
       gloss: { en: "O for the doctor's help, for the patient's sake!", ms: "Wahai, bantuan doktor demi pesakit itu!" },
+      // Book's own Arabic i'rab of this example (PDF p.198; title page, no
+      // printed number). Heavily vocalised in the book; marks I could not
+      // confirm (the shadda in «جره») are left unmarked. Second-reader
+      // confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 40, pdfPages: [198, 198] },
+        text: "يا: حرف نداء الاستغاثة. لَلطبيبِ: اللام المفتوحة: لام المُستغاث به، حرف جر أصلي متعلق بفعل النداء المحذوف. الطبيبِ: منادى مُستغاث به مجرور باللام لفظًا، منصوب محلاً لأنه مفعول به لفعل النداء المحذوف المُعَوَّض عنه بحرف النداء. لِلمريضِ: اللام المكسورة: لام المُستغاث له: حرف جر أصلي متعلق بفعل النداء المحذوف، المريضِ: مُستغاث له مجرور لفظًا باللام، وعلامة جره الكسرة."
+      },
       words: [
         { id: "w1", ar: "يَا", role: { en: "harf al-nida' (vocative particle)", ms: "harf al-nida' (huruf seruan)" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "Istighatha is introduced only by يا.", ms: "Istighathah hanya diperkenalkan oleh يا." } },
         { id: "w2", ar: "لَ", role: { en: "lam al-mustaghath bih (fatha-voweled)", ms: "lam al-mustaghath bih (berbaris fathah)" }, case: "—", sign: { en: "harf jarr asli, attached to the elided verb of calling", ms: "harf jarr asli, terikat pada kata kerja memanggil yang digugurkan" }, reason: { en: "Marks the one being called on for help.", ms: "Menandakan orang yang diseru untuk membantu." } },
@@ -3333,6 +3515,14 @@ const QILessons = {
       citation: { chapter: 41, pdfPages: [200, 200] },
       arabic: "وَاقَلْبَاهُ",
       gloss: { en: "Oh, my heart!", ms: "Aduhai, hatiku!" },
+      // Book's own Arabic i'rab of this example (PDF p.200; title page, no
+      // printed number). The vowel on the ba' of «قلباه» was not confirmed and
+      // is left unmarked. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 41, pdfPages: [200, 200] },
+        text: "وا: حرف ندبة. قلباه: منادى مندوب، نكرة مقصودة مبني على ضم مقدّر على آخره. (أي: على الباء) منع من ظهوره الفتحة العارضة لمناسبة الألف الزائدة لتأكيد الندبة، وهو في محل نصب مفعول به لفعل النداء المحذوف، والهاء: للسكت أو للوقف أو للاستراحة."
+      },
       words: [
         { id: "w1", ar: "وَا", role: { en: "harf nudba (particle of lament)", ms: "harf nudbah (huruf ratapan)" }, case: "—", sign: { en: "harf; carries no case ending", ms: "huruf; tiada tanda kes" }, reason: { en: "وا is the ordinary particle for calling out in grief or pain.", ms: "وا ialah huruf biasa bagi seruan kesedihan atau kepedihan." } },
         { id: "w2", ar: "قَلْبَاهُ", role: { en: "munada mandub, nakira maqsuda", ms: "munada mandub, nakira maqsudah" }, case: "—", sign: { en: "mabni on an estimated damma, blocked by the added alif's apparent fatha", ms: "mabni pada damma dianggarkan, disekat oleh fathah zahir alif tambahan" }, reason: { en: "A mandub keeps the ordinary mabni pattern of a nakira-maqsuda munada, with the ending now estimated because the added alif al-nudba sits where its vowel would otherwise show; the closing ha' is purely for sakt/waqf/istiraha and carries no case.", ms: "Mandub mengekalkan corak mabni biasa bagi munada nakira maqsudah, dengan hujungnya kini dianggarkan kerana alif al-nudba tambahan terletak di tempat barisnya sepatutnya kelihatan; ha' penutup semata-mata untuk sakt/waqf/istirahah dan tidak membawa sebarang kes." } }
@@ -3482,6 +3672,15 @@ const QILessons = {
       citation: { chapter: 47, pdfPages: [220, 220] },
       arabic: "وَصَلَ المُسَافِرُ إِلَى المَدِينَةِ",
       gloss: { en: "The traveler arrived at the city.", ms: "Musafir itu tiba di bandar itu." },
+      // Book's own Arabic i'rab of this example (PDF p.220; title page, no
+      // printed number). The book abbreviates this entry itself: «فاعل ومرفوع. . .»
+      // is as printed (no text omitted here). The shadda in «جره» was not
+      // confirmed and is left plain. Second-reader confirmation pending.
+      irabAr: {
+        contentLabel: "source-example",
+        citation: { chapter: 47, pdfPages: [220, 220] },
+        text: "وصل: فعل ماضٍ مبني، المسافرُ: فاعل ومرفوع. . . إلى المدينة: جار ومجرور، إلى: حرف جر متعلق بوصل. المدينة: مجرور بإلى وعلامة جره الكسرة."
+      },
       words: [
         { id: "w1", ar: "وَصَلَ", role: { en: "past-tense verb", ms: "kata kerja lampau" }, case: "—", sign: { en: "mabni on fatha", ms: "mabni fathah" }, reason: { en: "A sound-rooted past-tense verb defaults to apparent fatha.", ms: "Kata kerja lampau berakar sahih kekal fathah zahir secara lazim." } },
         { id: "w2", ar: "المُسَافِرُ", role: { en: "fa'il", ms: "fa'il" }, case: "raf'", sign: { en: "apparent damma", ms: "damma zahir" }, reason: { en: "The fa'il of وصل.", ms: "Fa'il bagi وصل." } },

@@ -85,6 +85,17 @@ original audit.
         reason: { en: string, ms: string }  // why — ties back to the rule
       }
     ],
+    irabAr?: {                     // OPTIONAL. The book's own Arabic i'rab of this worked
+      contentLabel: "source-example", // example, verbatim from the cited page. Rendered RTL
+      citation: { chapter: number, pdfPages: [number, number], printedPage?: number },
+      text: string                 // under the example; not translated. ONE passage:
+      // ...or, instead of `text`, SEVERAL passages shown in array order:
+      // passages: [ { text: string,
+      //               heading?: { en: string, ms: string },   // short label
+      //               citation?: { chapter, pdfPages, printedPage? } }, ... ]
+      // The shared `citation` above is shown once after the passages unless a
+      // passage carries its own. `text`-only entries keep working unchanged.
+    }
     dualAnalysis?: {               // ONLY present when the source itself
                                     // documents more than one valid reading
       note: { en: string, ms: string },     // what the second reading is

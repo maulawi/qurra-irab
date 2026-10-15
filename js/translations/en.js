@@ -71,6 +71,7 @@ var QI_EN = {
   "lesson.completionLabel": "Completion check",
   "lesson.lessonCompleteBadge": "Lesson complete",
   "lesson.sourceLabel": "Source",
+  "lesson.irabArLabel": "I'rab in Arabic, as written in the book",
   "lesson.pdfPagesLabel": "PDF pp.",
   "lesson.exercisesProgressLabel": "Exercises completed",
   "lesson.readingOneLabel": "Reading 1",

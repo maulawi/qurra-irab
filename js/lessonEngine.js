@@ -216,6 +216,39 @@
     var citation = renderCitation(ex.citation, lang);
     if (citation) section.appendChild(citation);
 
+    // --- the book's own Arabic i'rab of this example (optional; pilot) ---
+    // Two accepted shapes: { text, citation } (one passage) or
+    // { passages: [{ text, heading?, citation? }, ...], citation? } (several,
+    // shown in array order). A shared irabAr.citation is shown once at the
+    // end unless some passage carries its own.
+    if (ex.irabAr) {
+      var irabPassages = (Array.isArray(ex.irabAr.passages) && ex.irabAr.passages.length)
+        ? ex.irabAr.passages
+        : (ex.irabAr.text ? [{ text: ex.irabAr.text }] : []);
+      irabPassages = irabPassages.filter(function (p) { return p && p.text; });
+      if (irabPassages.length) {
+        section.appendChild(eyebrow(t("lesson.irabArLabel", lang)));
+        var anyOwnCitation = false;
+        irabPassages.forEach(function (p) {
+          if (p.heading) {
+            section.appendChild(el("p", {
+              className: "qi-eyebrow qi-irab-ar-heading",
+              text: typeof p.heading === "string" ? p.heading : bilingual(p.heading, lang)
+            }));
+          }
+          section.appendChild(el("p", { className: "qi-arabic qi-irab-ar", attrs: { dir: "rtl", lang: "ar" }, text: p.text }));
+          if (p.citation) {
+            var ownCitation = renderCitation(p.citation, lang);
+            if (ownCitation) { section.appendChild(ownCitation); anyOwnCitation = true; }
+          }
+        });
+        if (!anyOwnCitation) {
+          var irabCitation = renderCitation(ex.irabAr.citation, lang);
+          if (irabCitation) section.appendChild(irabCitation);
+        }
+      }
+    }
+
     // --- progressive word-by-word walkthrough ---
     section.appendChild(el("h3", { className: "qi-walkthrough-heading", text: t("lesson.walkthroughLabel", lang) }));
     var rows = el("div", { className: "qi-walkthrough-rows" });

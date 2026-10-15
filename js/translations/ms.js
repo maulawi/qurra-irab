@@ -71,6 +71,7 @@ var QI_MS = {
   "lesson.completionLabel": "Semakan penyempurnaan",
   "lesson.lessonCompleteBadge": "Pelajaran selesai",
   "lesson.sourceLabel": "Sumber",
+  "lesson.irabArLabel": "I'rab dalam bahasa Arab, seperti tertulis dalam buku",
   "lesson.pdfPagesLabel": "ms. PDF",
   "label.sourceDerived": "Diringkaskan daripada sumber",
   "label.sourceExample": "Ditranskripsi daripada sumber",

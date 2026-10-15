@@ -72,6 +72,23 @@
   color: var(--qi-color-text-muted);
 }
 
+/* The book's own Arabic i'rab text: full-width RTL block, right-aligned,
+   same surface treatment as the example sentence above it. */
+.qi-irab-ar {
+  max-width: none;
+  text-align: start; /* start of an RTL block = right edge */
+  background: var(--qi-color-surface);
+  box-shadow: var(--qi-shadow-card);
+  border-radius: var(--qi-radius-md);
+  padding: var(--qi-space-3) var(--qi-space-4);
+  margin: 0 0 var(--qi-space-3) 0;
+}
+
+/* Optional per-passage heading when irabAr has several passages. */
+.qi-irab-ar-heading {
+  margin: var(--qi-space-3) 0 var(--qi-space-2) 0;
+}
+
 .qi-walkthrough-heading {
   margin-top: var(--qi-space-5);
 }
