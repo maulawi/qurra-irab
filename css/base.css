@@ -19,6 +19,12 @@ html, body {
   padding: 0;
 }
 
+/* Stop mobile browsers re-inflating text after rotation/zoom, which shifts layout. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: var(--qi-font-ui);
   font-size: var(--qi-font-size-base);

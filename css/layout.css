@@ -35,6 +35,7 @@
 }
 
 .qi-lang-switch {
+  flex-shrink: 0;
   display: flex;
   gap: var(--qi-space-1);
   margin-left: auto;
@@ -78,7 +79,7 @@
 
 .qi-chapter-grid {
   display: grid;
-  grid-template-columns: 1fr; /* mobile-first; widened in responsive.css */
+  grid-template-columns: minmax(0, 1fr); /* mobile-first; widened in responsive.css. minmax(0,…) lets a column shrink below its content width */
   gap: var(--qi-space-4);
   margin-bottom: var(--qi-space-6);
 }
