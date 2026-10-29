@@ -211,17 +211,14 @@ function fail(label, detail) { failures.push(label + (detail ? (' :: ' + detail)
   if (realCh48Card && !realPlaceholderBadge) ok('Chapter 48 card shows no placeholder badge after reload (real data restored, genuinely built)');
   else fail('Chapter 48 real data not restored after reload', 'card=' + !!realCh48Card + ' badge=' + !!realPlaceholderBadge);
 
-  // 9. Locked chapter check (Chapter 14, prereq [1,10] — 10 not yet
-  // complete). Step 8's synthetic fixture above marked Chapters 21, 23,
-  // 24, 27, 29 and 37 complete via localStorage (to unlock Chapter 48 for
-  // that check) — localStorage survives the page.reload() in step 8, so
-  // that state is still in effect here. Chapter 14 stays locked under
-  // {1,21,23,24,27,29,37} since Chapter 10 is never marked complete,
-  // confirmed by direct inspection of curriculum.js's prereq data.
+  // 9. No sequential locking (Chapter 14, prereq [1,10] — 10 is never marked
+  // complete in this run). All 48 chapters are open from the start; prereq is
+  // advisory data only, so Chapter 14 must be a normal, linked, unlocked card.
   const ch14Card = await page.$('.qi-chapter-card:has-text("Chapter 14")');
   const lockedNoticeOnCh14 = ch14Card ? await ch14Card.$('.qi-chapter-card-locked-notice') : null;
-  if (ch14Card && lockedNoticeOnCh14) ok('Chapter 14 correctly shown locked (prereq chapter 10 not complete)');
-  else fail('Chapter 14 lock state unexpected', 'card=' + !!ch14Card + ' locked=' + !!lockedNoticeOnCh14);
+  const ch14Link = ch14Card ? await ch14Card.$('a[href="#/lesson/14"]') : null;
+  if (ch14Card && !lockedNoticeOnCh14 && ch14Link) ok('Chapter 14 open although prereq chapter 10 is not complete (no locking)');
+  else fail('Chapter 14 should be open', 'card=' + !!ch14Card + ' locked=' + !!lockedNoticeOnCh14 + ' link=' + !!ch14Link);
 
   // 10. Dual-analysis rendering (Chapter 23)
   await page.goto(BASE + '/index.html#/lesson/23', { waitUntil: 'load' });

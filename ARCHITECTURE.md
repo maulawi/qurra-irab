@@ -166,10 +166,13 @@ learning progress (language has its own small store in `state.js`).
 Schema is versioned (`qurra-irab:progress:v1`) so a future schema change
 can migrate cleanly. Two record types: per-exercise attempts (answer,
 correctness, timestamp) and per-lesson completion timestamps. Chapter
-unlocking (`QIProgress.isChapterUnlocked`) checks that every prerequisite
-chapter listed in `curriculum.js`'s `prereq[]` is already complete — the
-curriculum browser still *shows* locked chapters (all 48 are always
-visible), it just doesn't let you open their lesson yet.
+access (`QIProgress.isChapterUnlocked`) is open for every chapter in the
+curriculum: all 48 lessons can be opened at any time, from the curriculum
+browser or by direct `#/lesson/:id` URL, without completing earlier
+lessons. `prereq[]` in `curriculum.js` is kept as advisory sequencing
+data only. Availability is independent of completion: nothing is marked
+complete automatically, and recommended-next still picks the lowest-numbered
+built lesson not yet complete.
 
 ## 9. Honest QA status
 

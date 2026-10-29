@@ -22,7 +22,7 @@ file in the same change.
 {
   id: number,              // chapter id, matches the source book's chapter numbering
   tier: number,            // 0-10, which QITiers entry this chapter belongs to
-  prereq: number[],        // chapter ids this chapter's lesson assumes
+  prereq: number[],        // chapter ids this chapter's lesson assumes (advisory; does not gate access)
   titleAr: string,         // chapter title, Arabic (untranslated)
   titleEn: string,
   titleMs: string,

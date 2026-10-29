@@ -115,19 +115,12 @@
     return { attempted: attempted, correct: correct, total: (exerciseIds || []).length };
   }
 
-  // A chapter is unlocked when it has no prerequisites, or every
-  // prerequisite chapter's lesson is already marked complete. Chapters
-  // without a built lesson yet (hasLesson:false) are still "unlocked" for
-  // browsing — unlocking gates progression through real lessons, not
-  // visibility of the curriculum map (Part 1 requires all 48 chapters to
-  // be represented and browsable even before content exists).
+  // Every chapter in the curriculum is open from the start: availability is
+  // independent of completion. A chapter's `prereq` list is kept in the data
+  // as advisory sequencing information ("this lesson assumes those"), but it
+  // no longer gates access. Unknown chapter ids are still not openable.
   function isChapterUnlocked(chapterId, curriculum) {
-    var chapter = curriculum.filter(function (c) { return c.id === chapterId; })[0];
-    if (!chapter) return false;
-    if (!chapter.prereq || chapter.prereq.length === 0) return true;
-    return chapter.prereq.every(function (prereqId) {
-      return isLessonComplete(prereqId);
-    });
+    return curriculum.some(function (c) { return c.id === chapterId; });
   }
 
   function getOverallStats(curriculum) {
