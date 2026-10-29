@@ -8,7 +8,7 @@
 var QI_MS = {
   // -- global / nav --
   "app.title": "QURRA I‘rab",
-  "nav.dashboard": "Papan Pemuka",
+  "nav.dashboard": "Utama",
   "nav.curriculum": "Kurikulum",
   "nav.progress": "Kemajuan",
   "nav.langSwitch": "Bahasa",
@@ -29,6 +29,14 @@ var QI_MS = {
   "dashboard.chaptersBuiltLabel": "Bab dibina",
   "dashboard.recommendNextLabel": "Disyorkan seterusnya:",
   "dashboard.recommendNextCta": "Teruskan",
+  "dashboard.heroEyebrow": "Tatabahasa Arab · Teks klasik",
+  "dashboard.heroTitle": "Kuasai i‘rab bahasa Arab",
+  "dashboard.heroSubtitle": "Pelajari analisis tatabahasa klasik, satu bab pada satu masa.",
+  "dashboard.heroCaption": "Laluan klasik ke pemahaman yang lebih mendalam",
+  "dashboard.journeyTitle": "Perjalanan pembelajaran anda",
+  "dashboard.browseShort": "Lihat kurikulum",
+  "dashboard.exploreAll": "Terokai semua {n} bab",
+  "dashboard.allLessonsLabel": "Semua pelajaran",
 
   // -- curriculum browser --
   "curriculum.pageTitle": "Kurikulum",

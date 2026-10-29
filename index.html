@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>QURRA I&rsquo;rab</title>
   <meta name="description" content="Learn Arabic i'rab (grammatical case analysis) chapter by chapter, grounded in a classical reference text." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%231b4d3e'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f6f1e4' font-family='serif'%3Eع%3C/text%3E%3C/svg%3E" />
@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/lesson.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <!-- home.css last: it scopes its own overrides and must win over the media-query rules above -->
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
   <!-- Persistent nav bar, re-rendered by router.js on every route change

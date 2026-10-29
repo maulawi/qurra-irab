@@ -29,6 +29,25 @@
 
   var LOCK_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
 
+  // -- Home screen artwork (inline, decorative; no external assets) --
+  var SVG_OPEN = '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+  var STAT_ICONS = {
+    book: SVG_OPEN + '<path d="M4 5.5C4 4.67 4.67 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>',
+    bookOpen: SVG_OPEN + '<path d="M3 5.5C5 4.5 8 4.5 12 6.5c4-2 7-2 9-1v13c-2-1-5-1-9 1-4-2-7-2-9-1v-13Z"/><path d="M12 6.5V19.5"/></svg>',
+    lesson: SVG_OPEN + '<rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h4"/></svg>',
+    check: SVG_OPEN + '<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>',
+    grid: SVG_OPEN + '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 4v16M4 12h16"/></svg>'
+  };
+  var ARROW_ICON = SVG_OPEN + '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var CHEVRON_ICON = SVG_OPEN + '<path d="m9 5 7 7-7 7"/></svg>';
+  var HERO_TITLE_AR = "عِلْمُ الْإِعْرَابِ";
+  // Decorative arch, an eight-point star and a stack of classical volumes.
+  var HERO_ART = '<svg viewBox="0 0 120 100" width="100%" height="100%" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">' +
+    '<path d="M18 100V46Q18 16 62 4Q106 16 106 46V100Z" fill="#e4ece7" opacity=".8"/>' +
+    '<g fill="none" stroke="#a9842e" stroke-width="1.1" opacity=".9"><rect x="14" y="14" width="22" height="22" transform="rotate(45 25 25)"/><rect x="14" y="14" width="22" height="22"/><circle cx="25" cy="25" r="4"/></g>' +
+    '<g><rect x="58" y="34" width="13" height="66" rx="1.5" fill="#143a2f"/><rect x="72" y="44" width="13" height="56" rx="1.5" fill="#1b4d3e"/><rect x="86" y="26" width="14" height="74" rx="1.5" fill="#143a2f"/><rect x="101" y="20" width="14" height="80" rx="1.5" fill="#1b4d3e"/></g>' +
+    '<g stroke="#c9a24a" stroke-width="1.4" fill="none"><path d="M58 46h13M58 88h13M72 56h13M72 90h13M86 38h14M86 88h14M101 32h14M101 88h14"/></g></svg>';
+
   function progressBar(label, value, max, opts) {
     opts = opts || {};
     var wrap = el("div", { className: "qi-progress-bar" });
@@ -66,44 +85,70 @@
     var stats = global.QIProgress.getOverallStats(allChapters);
 
     var wrap = el("div", { className: "qi-screen qi-dashboard" });
-    wrap.appendChild(el("h1", { text: t("dashboard.welcomeTitle", lang) }));
-    wrap.appendChild(el("p", { className: "qi-dashboard-subtitle", text: t("dashboard.subtitle", lang) }));
+    var nextChapter = findRecommendedNext();
 
+    // -- A/B. hero: eyebrow, heading, supporting text, Arabic panel --
+    var hero = el("section", { className: "qi-hero" });
+    hero.appendChild(el("p", { className: "qi-hero-eyebrow", text: t("dashboard.heroEyebrow", lang) }));
+    hero.appendChild(el("h1", { className: "qi-hero-title", text: t("dashboard.heroTitle", lang) }));
+    hero.appendChild(el("p", { className: "qi-hero-sub", text: t("dashboard.heroSubtitle", lang) }));
+    // General title of the discipline ("The Science of I'rab"): deliberately
+    // not a chapter title or lesson example. Same in EN and MS.
+    var panel = el("div", { className: "qi-hero-panel" });
+    panel.appendChild(el("span", { className: "qi-hero-art", html: HERO_ART, attrs: { "aria-hidden": "true" } }));
+    panel.appendChild(el("p", { className: "qi-arabic qi-hero-ar", attrs: { dir: "rtl", lang: "ar" }, text: HERO_TITLE_AR }));
+    panel.appendChild(el("p", { className: "qi-hero-caption", text: t("dashboard.heroCaption", lang) }));
+    hero.appendChild(panel);
+    wrap.appendChild(hero);
+
+    // -- C. statistics card (dynamic values from existing progress logic) --
     var statsRow = el("div", { className: "qi-stats-row" });
     [
-      [stats.totalChapters, "dashboard.statsChapters"],
-      [stats.lessonsAvailable, "dashboard.statsLessonsAvailable"],
-      [stats.lessonsCompleted, "dashboard.statsLessonsCompleted"]
-    ].forEach(function (pair) {
+      [stats.totalChapters, "dashboard.statsChapters", STAT_ICONS.book],
+      [stats.lessonsAvailable, "dashboard.statsLessonsAvailable", STAT_ICONS.lesson],
+      [stats.lessonsCompleted, "dashboard.statsLessonsCompleted", STAT_ICONS.check]
+    ].forEach(function (item) {
       var card = el("div", { className: "qi-stat-card" });
-      card.appendChild(el("p", { className: "qi-stat-number", text: String(pair[0]) }));
-      card.appendChild(el("p", { className: "qi-stat-label", text: t(pair[1], lang) }));
+      var top = el("div", { className: "qi-stat-top" });
+      top.appendChild(el("p", { className: "qi-stat-number", text: String(item[0]) }));
+      top.appendChild(el("span", { className: "qi-stat-icon", html: item[2], attrs: { "aria-hidden": "true" } }));
+      card.appendChild(top);
+      card.appendChild(el("p", { className: "qi-stat-label", text: t(item[1], lang) }));
       statsRow.appendChild(card);
     });
     wrap.appendChild(statsRow);
 
-    // -- curriculum progress overview --
-    var progressCard = el("div", { className: "qi-card" });
-    progressCard.appendChild(el("h2", { text: t("dashboard.progressOverviewLabel", lang) }));
+    // -- D. learning journey: progress bars + continue-learning CTA --
+    var progressCard = el("div", { className: "qi-card qi-journey" });
+    progressCard.appendChild(el("h2", { className: "qi-journey-title", text: t("dashboard.journeyTitle", lang) }));
     progressCard.appendChild(progressBar(t("dashboard.chaptersBuiltLabel", lang), stats.lessonsAvailable, stats.totalChapters));
     progressCard.appendChild(progressBar(t("dashboard.statsLessonsCompleted", lang), stats.lessonsCompleted, stats.lessonsAvailable, { gold: true }));
-    wrap.appendChild(progressCard);
-
-    // -- recommended next --
-    var nextChapter = findRecommendedNext();
     if (nextChapter) {
-      var recommend = el("div", { className: "qi-recommend" });
-      recommend.appendChild(el("p", {
-        className: "qi-recommend-text",
+      progressCard.appendChild(el("p", {
+        className: "qi-journey-next",
         text: t("dashboard.recommendNextLabel", lang) + " " + t("lesson.chapterLabel", lang) + " " + nextChapter.id + " — " + chapterTitle(nextChapter, lang)
       }));
-      recommend.appendChild(el("a", { className: "qi-btn qi-btn--primary", text: t("dashboard.recommendNextCta", lang), attrs: { href: "#/lesson/" + nextChapter.id } }));
-      wrap.appendChild(recommend);
+      var cta = el("a", { className: "qi-btn qi-btn--primary qi-cta", attrs: { href: "#/lesson/" + nextChapter.id } });
+      cta.appendChild(el("span", { className: "qi-cta-icon", html: STAT_ICONS.bookOpen, attrs: { "aria-hidden": "true" } }));
+      cta.appendChild(el("span", { className: "qi-cta-label", text: t("dashboard.continueLabel", lang) }));
+      cta.appendChild(el("span", { className: "qi-cta-icon", html: ARROW_ICON, attrs: { "aria-hidden": "true" } }));
+      progressCard.appendChild(cta);
     }
+    wrap.appendChild(progressCard);
+
+    // -- E. curriculum shortcut --
+    var shortcut = el("a", { className: "qi-shortcut", attrs: { href: "#/curriculum" } });
+    shortcut.appendChild(el("span", { className: "qi-shortcut-icon", html: STAT_ICONS.grid, attrs: { "aria-hidden": "true" } }));
+    var shortcutText = el("span", { className: "qi-shortcut-text" });
+    shortcutText.appendChild(el("span", { className: "qi-shortcut-title", text: t("dashboard.browseShort", lang) }));
+    shortcutText.appendChild(el("span", { className: "qi-shortcut-sub", text: t("dashboard.exploreAll", lang).replace("{n}", String(stats.totalChapters)) }));
+    shortcut.appendChild(shortcutText);
+    shortcut.appendChild(el("span", { className: "qi-shortcut-chevron", html: CHEVRON_ICON, attrs: { "aria-hidden": "true" } }));
+    wrap.appendChild(shortcut);
 
     var built = global.QIData.getBuiltChapters();
     var continueCard = el("div", { className: "qi-card qi-continue-card" });
-    continueCard.appendChild(el("h2", { text: t("dashboard.continueLabel", lang) }));
+    continueCard.appendChild(el("h2", { text: t("dashboard.allLessonsLabel", lang) }));
     var list = el("div", { className: "qi-continue-list" });
     built.forEach(function (chapter) {
       var link = el("a", {
@@ -119,9 +164,6 @@
     });
     continueCard.appendChild(list);
     wrap.appendChild(continueCard);
-
-    var browseLink = el("a", { className: "qi-btn qi-btn--secondary", text: t("dashboard.browseCurriculum", lang), attrs: { href: "#/curriculum" } });
-    wrap.appendChild(browseLink);
 
     var aboutCard = el("div", { className: "qi-about-source" });
     aboutCard.appendChild(el("h2", { text: t("dashboard.aboutSourceTitle", lang) }));

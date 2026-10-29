@@ -12,7 +12,7 @@
 var QI_EN = {
   // -- global / nav --
   "app.title": "QURRA I‘rab",
-  "nav.dashboard": "Dashboard",
+  "nav.dashboard": "Home",
   "nav.curriculum": "Curriculum",
   "nav.progress": "Progress",
   "nav.langSwitch": "Language",
@@ -33,6 +33,14 @@ var QI_EN = {
   "dashboard.chaptersBuiltLabel": "Chapters built",
   "dashboard.recommendNextLabel": "Recommended next:",
   "dashboard.recommendNextCta": "Continue",
+  "dashboard.heroEyebrow": "Arabic grammar · Classical text",
+  "dashboard.heroTitle": "Master Arabic i‘rab",
+  "dashboard.heroSubtitle": "Study classical grammatical analysis, one chapter at a time.",
+  "dashboard.heroCaption": "A classical path to deeper understanding",
+  "dashboard.journeyTitle": "Your learning journey",
+  "dashboard.browseShort": "Browse curriculum",
+  "dashboard.exploreAll": "Explore all {n} chapters",
+  "dashboard.allLessonsLabel": "All lessons",
 
   // -- curriculum browser --
   "curriculum.pageTitle": "Curriculum",

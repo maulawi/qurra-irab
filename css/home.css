@@ -1,0 +1,310 @@
+/* ==========================================================================
+   QURRA I'rab — Home screen (dashboard) and shell refinements
+
+   Loaded LAST so these rules win over the media-query rules in
+   responsive.css. Everything for the home screen is scoped under
+   .qi-dashboard; the only shared rules here are the safe-area handling and
+   the bottom-navigation active indicator (clearly marked below).
+
+   Mobile-first. Every flex/grid child that holds text sets min-width: 0 and
+   long strings may wrap, so nothing can widen the page (see the mobile
+   viewport fix: a single overflowing row used to widen the whole layout).
+   ========================================================================== */
+
+/* -- shared shell: safe areas (viewport-fit=cover) and bottom-nav indicator -- */
+.qi-header {
+  height: calc(var(--qi-header-height) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(var(--qi-space-4), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--qi-space-4), env(safe-area-inset-right, 0px));
+}
+#qi-app-content {
+  padding-left: max(var(--qi-space-4), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--qi-space-4), env(safe-area-inset-right, 0px));
+}
+.qi-tabbar {
+  height: calc(var(--qi-tabbar-height) + env(safe-area-inset-bottom, 0px));
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+.qi-tabbar-link {
+  position: relative;
+}
+.qi-tabbar-link--active {
+  font-weight: 700;
+}
+.qi-tabbar-link--active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 2.25rem;
+  max-width: 60%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--qi-color-primary);
+  transform: translateX(-50%);
+}
+
+/* -- page column -- */
+.qi-dashboard {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+/* -- A/B. hero -- */
+.qi-hero {
+  margin-bottom: var(--qi-space-4);
+}
+.qi-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-3);
+  margin: 0 0 var(--qi-space-2) 0;
+  max-width: none;
+  font-size: var(--qi-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--qi-color-secondary); /* 5.6:1 on the page background; gold is kept for the rule */
+}
+.qi-hero-eyebrow::before {
+  content: "";
+  flex: none;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--qi-color-gold);
+}
+.qi-hero-title {
+  margin: 0 0 var(--qi-space-2) 0;
+  font-size: clamp(1.75rem, 8.2vw, 3rem);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.qi-hero-sub {
+  max-width: 30rem;
+  margin: 0 0 var(--qi-space-4) 0;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--qi-color-text-muted);
+}
+.qi-hero-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 9.5rem;
+  padding: var(--qi-space-5) 38% var(--qi-space-4) var(--qi-space-4); /* right padding keeps text clear of the volumes */
+  text-align: center;
+  background: var(--qi-color-surface);
+  border: 1px solid var(--qi-color-border);
+  border-radius: var(--qi-radius-lg);
+  box-shadow: var(--qi-shadow-card);
+  overflow: hidden;
+}
+.qi-hero-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  pointer-events: none;
+}
+.qi-hero-ar {
+  position: relative; /* above the artwork */
+  max-width: 100%;
+  margin: 0 0 var(--qi-space-2) 0;
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  line-height: 1.7;
+  color: var(--qi-color-primary);
+}
+.qi-hero-caption {
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding-top: var(--qi-space-2);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--qi-color-text-muted);
+}
+.qi-hero-caption::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1px;
+  margin: 0 auto var(--qi-space-2) auto;
+  background: var(--qi-color-gold);
+}
+
+/* -- C. statistics card -- */
+.qi-dashboard .qi-stats-row {
+  flex-wrap: nowrap; /* three metrics stay on one row at every width (overrides the 2+1 wrap below 390px) */
+  margin: 0 0 var(--qi-space-4) 0;
+  border: 1px solid var(--qi-color-border);
+}
+.qi-dashboard .qi-stat-card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--qi-space-1);
+  padding: var(--qi-space-4) var(--qi-space-2);
+}
+.qi-stat-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qi-space-1) var(--qi-space-2);
+}
+.qi-dashboard .qi-stat-number {
+  font-size: clamp(1.5rem, 7.5vw, 2.5rem);
+  line-height: 1.1;
+}
+.qi-stat-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0.35rem;
+  border-radius: 50%;
+  background: var(--qi-color-gold-tint);
+  color: var(--qi-color-secondary);
+}
+.qi-dashboard .qi-stat-label {
+  max-width: none;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* -- D. learning journey -- */
+.qi-journey {
+  margin-bottom: var(--qi-space-4);
+  border: 1px solid var(--qi-color-border);
+}
+.qi-journey-title {
+  margin: 0 0 var(--qi-space-4) 0;
+  font-size: clamp(1.375rem, 6vw, 1.75rem);
+  overflow-wrap: anywhere;
+}
+.qi-journey .qi-progress-bar-track {
+  height: 10px;
+}
+.qi-journey-next {
+  max-width: none;
+  margin: 0 0 var(--qi-space-3) 0;
+  font-size: var(--qi-font-size-sm);
+  color: var(--qi-color-text-muted);
+  overflow-wrap: anywhere;
+}
+.qi-cta {
+  display: flex;
+  width: 100%;
+  min-height: 3.25rem;
+  gap: var(--qi-space-3);
+  padding: var(--qi-space-2) var(--qi-space-4);
+  font-size: 1.0625rem;
+}
+.qi-cta-icon {
+  flex: none;
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.qi-cta-label {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* -- E. curriculum shortcut -- */
+.qi-shortcut {
+  display: flex;
+  align-items: center;
+  gap: var(--qi-space-4);
+  margin-bottom: var(--qi-space-5);
+  padding: var(--qi-space-4);
+  min-height: 4.25rem;
+  color: var(--qi-color-text);
+  background: var(--qi-color-surface);
+  border: 1px solid var(--qi-color-border);
+  border-radius: var(--qi-radius-lg);
+  box-shadow: var(--qi-shadow-card);
+}
+.qi-shortcut:hover {
+  text-decoration: none;
+  border-color: var(--qi-color-primary);
+}
+.qi-shortcut-icon {
+  flex: none;
+  display: inline-flex;
+  width: 1.375rem;
+  height: 1.375rem;
+  box-sizing: content-box;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background: var(--qi-color-primary-tint);
+  color: var(--qi-color-primary);
+}
+.qi-shortcut-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.qi-shortcut-title {
+  font-family: var(--qi-font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--qi-color-primary);
+  overflow-wrap: anywhere;
+}
+.qi-shortcut-sub {
+  font-size: var(--qi-font-size-sm);
+  color: var(--qi-color-text-muted);
+  overflow-wrap: anywhere;
+}
+.qi-shortcut-chevron {
+  flex: none;
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--qi-color-text);
+}
+
+/* -- small phones (<=389px): keep the tighter side padding responsive.css gave them -- */
+@media (max-width: 389px) {
+  .qi-header,
+  #qi-app-content {
+    padding-left: max(var(--qi-space-3), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--qi-space-3), env(safe-area-inset-right, 0px));
+  }
+  .qi-hero-panel {
+    padding-left: var(--qi-space-3);
+  }
+}
+
+/* -- tablet and up -- */
+@media (min-width: 768px) {
+  .qi-hero-panel {
+    min-height: 12rem;
+    padding-right: 36%;
+  }
+  .qi-hero-ar {
+    font-size: 2.75rem;
+  }
+  .qi-dashboard .qi-stat-card {
+    padding: var(--qi-space-5) var(--qi-space-3);
+  }
+}
