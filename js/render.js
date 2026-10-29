@@ -165,10 +165,11 @@
     continueCard.appendChild(list);
     wrap.appendChild(continueCard);
 
-    var aboutCard = el("div", { className: "qi-about-source" });
-    aboutCard.appendChild(el("h2", { text: t("dashboard.aboutSourceTitle", lang) }));
-    aboutCard.appendChild(el("p", { text: t("dashboard.aboutSourceBody", lang) }));
-    wrap.appendChild(aboutCard);
+    // Compact, secondary status notice (replaces the long source explanation)
+    var betaNote = el("div", { className: "qi-beta-notice", attrs: { role: "note" } });
+    betaNote.appendChild(el("span", { className: "qi-beta-title", text: t("dashboard.betaTitle", lang) }));
+    betaNote.appendChild(el("span", { className: "qi-beta-body", text: t("dashboard.betaBody", lang) }));
+    wrap.appendChild(betaNote);
 
     container.appendChild(wrap);
   }

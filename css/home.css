@@ -308,3 +308,26 @@
     padding: var(--qi-space-5) var(--qi-space-3);
   }
 }
+
+/* -- beta status notice: small and secondary, below all main content -- */
+.qi-beta-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--qi-space-2);
+  margin: var(--qi-space-2) 0 var(--qi-space-4) 0;
+  padding: var(--qi-space-2) var(--qi-space-3);
+  font-size: var(--qi-font-size-sm);
+  color: var(--qi-color-text-muted);
+  background: var(--qi-color-gold-tint);
+  border-left: 3px solid var(--qi-color-gold);
+  border-radius: var(--qi-radius-sm, 4px);
+}
+.qi-beta-title {
+  font-weight: 600;
+  color: var(--qi-color-secondary);
+}
+.qi-beta-body {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
